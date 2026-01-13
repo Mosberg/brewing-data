@@ -1,0 +1,6 @@
+{
+  "id": "brewing:fermentation",
+  "name_key": "brewing.method.fermentation.name",
+  "tooltip_key": "brewing.method.fermentation.tooltip",
+  "roles": ["brewing:fermenter"]
+}

@@ -1,0 +1,126 @@
+{
+  "type": "brewing:beverage",
+  "schema_version": 1,
+  "id": "brewing:amber_ale",
+  "category": "beer",
+  "style": "amber",
+  "container": "brewing:glass_bottle",
+  "rarity": "uncommon",
+  "stack_size": 16,
+
+  "brewing": {
+    "brew_time_seconds": 120,
+    "brew_time_ticks": 2400,
+    "station_tags": ["brewing:kettle"],
+    "difficulty": 2,
+    "batch_size_servings": 4,
+    "byproducts": [
+      { "item": "brewing:spent_grain", "count": 1, "chance": 0.25 }
+    ],
+    "failure": {
+      "enabled": false
+    }
+  },
+
+  "stats": {
+    "alcohol_by_volume": 5.2,
+    "strength": 0.3,
+    "intoxication": {
+      "value": 0.2,
+      "decay_rate_per_tick": 0.001
+    },
+    "nutrition": {
+      "hunger": 2,
+      "saturation": 0.4
+    }
+  },
+
+  "quality": {
+    "tier": "standard",
+    "supports_quality": true,
+    "quality_on_brew": 0.5,
+    "quality_floor": 0.2,
+    "quality_ceiling": 0.9
+  },
+
+  "aging": {
+    "supported": false
+  },
+
+  "spoilage": {
+    "enabled": true,
+    "base_decay_per_day": 0.1,
+    "opened_decay_multiplier": 2,
+    "temperature": {
+      "preferred": "cool",
+      "hot_decay_multiplier": 3,
+      "cold_decay_multiplier": 0.5
+    }
+  },
+
+  "carbonation": {
+    "level": "medium",
+    "foam": {
+      "enabled": true,
+      "spill_chance_on_open": 0.1
+    }
+  },
+
+  "visuals": {
+    "liquid_color": 14537936,
+    "bubbles": "medium",
+    "glow": "none",
+    "particle": "minecraft:happy_villager"
+  },
+
+  "effects": [
+    {
+      "effect": "minecraft:speed",
+      "duration": 200,
+      "amplifier": 0,
+      "chance": 1.0
+    }
+  ],
+
+  "ingredients": [
+    { "item": "brewing:barley", "count": 2 },
+    { "item": "brewing:hops", "count": 1 },
+    { "item": "minecraft:water_bucket", "count": 1 }
+  ],
+
+  "tags": ["brewing:beer"],
+
+  "loot": {
+    "weight": 5,
+    "tables": ["minecraft:village/brewer"]
+  },
+
+  "gates": {
+    "requires_feature_flag": "brewing:enabled",
+    "requires_gamerule_true": "brewingEnabled"
+  },
+
+  "client": {
+    "use_liquid_tint": true,
+    "show_strength_line": true,
+    "show_quality_line": true,
+    "show_spoilage_hint": true,
+    "show_alcohol_by_volume": true,
+    "tooltip_theme": "default"
+  },
+
+  "text": {
+    "name_key": "brewing.beverage.amber_ale.name",
+    "lore_key": "brewing.beverage.amber_ale.lore",
+    "tooltip_key": "brewing.beverage.amber_ale.tooltip",
+    "effect_text_key": "brewing.beverage.amber_ale.effects",
+    "brew_time_text_key": "brewing.beverage.amber_ale.brew_time",
+    "ingredients_text_key": "brewing.beverage.amber_ale.ingredients",
+    "container_text_key": "brewing.beverage.amber_ale.container",
+    "rarity_text_key": "brewing.beverage.amber_ale.rarity",
+    "category_text_key": "brewing.beverage.amber_ale.category",
+    "flavor_text_key": "brewing.beverage.amber_ale.flavor",
+    "warning_key": "brewing.beverage.amber_ale.warning",
+    "crafting_instructions_key": "brewing.beverage.amber_ale.instructions"
+  }
+}
