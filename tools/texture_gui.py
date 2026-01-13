@@ -1,18 +1,35 @@
-# texture_gui.py
+#!/usr/bin/env python3
+"""
+Interactive texture generator GUI.
+
+Provides a graphical interface for generating and previewing textures
+with real-time parameter adjustments.
+"""
+
 import tkinter as tk
-from tkinter import ttk, filedialog
+from tkinter import ttk, filedialog, messagebox
+from typing import Optional
+
 from PIL import ImageTk
+
 import texture_core as core
 
+# UI Constants
 ITEM_TYPES = list(core.SILHOUETTES.keys())
 PALETTE_KEYS = list(core.PALETTES.keys())
 SIZES = [16, 32, 64]
+DEFAULT_PREVIEW_SIZE = 256
+
 
 class TextureGUI:
-    def __init__(self, root):
+    """Interactive texture generator GUI."""
+
+    def __init__(self, root: tk.Tk):
         self.root = root
         root.title("Minecraft Item Texture Generator")
+        root.geometry("800x600")
 
+        # UI Variables
         self.item_type = tk.StringVar(value="bottle")
         self.palette_key = tk.StringVar(value="glass")
         self.size = tk.IntVar(value=16)
@@ -20,98 +37,176 @@ class TextureGUI:
         self.seed = tk.IntVar(value=0)
         self.use_seed = tk.BooleanVar(value=False)
 
-        self._build_controls()
-        self._build_canvas()
-        self.preview_img_tk = None
+        # Preview cache
+        self.preview_img_tk: Optional[ImageTk.PhotoImage] = None
 
-        self.update_preview()
+        self._build_ui()
+        self._update_preview()
 
-    def _build_controls(self):
-        frame = ttk.Frame(self.root, padding=8)
-        frame.pack(side=tk.LEFT, fill=tk.Y)
+    def _build_ui(self) -> None:
+        """Build user interface components."""
+        # Left control panel
+        control_frame = ttk.Frame(self.root, padding=8)
+        control_frame.pack(side=tk.LEFT, fill=tk.Y, padx=5, pady=5)
 
-        ttk.Label(frame, text="Item type").pack(anchor="w")
-        ttk.Combobox(frame, textvariable=self.item_type, values=ITEM_TYPES, state="readonly")\
-            .pack(fill=tk.X)
+        ttk.Label(control_frame, text="Item Type").pack(anchor="w", pady=(0, 2))
+        ttk.Combobox(
+            control_frame,
+            textvariable=self.item_type,
+            values=ITEM_TYPES,
+            state="readonly",
+            width=15,
+        ).pack(fill=tk.X, pady=(0, 8))
 
-        ttk.Label(frame, text="Palette").pack(anchor="w", pady=(8,0))
-        ttk.Combobox(frame, textvariable=self.palette_key, values=PALETTE_KEYS, state="readonly")\
-            .pack(fill=tk.X)
+        ttk.Label(control_frame, text="Palette").pack(anchor="w", pady=(0, 2))
+        ttk.Combobox(
+            control_frame,
+            textvariable=self.palette_key,
+            values=PALETTE_KEYS,
+            state="readonly",
+            width=15,
+        ).pack(fill=tk.X, pady=(0, 8))
 
-        ttk.Label(frame, text="Size").pack(anchor="w", pady=(8,0))
-        ttk.Combobox(frame, textvariable=self.size, values=SIZES, state="readonly")\
-            .pack(fill=tk.X)
+        ttk.Label(control_frame, text="Size (px)").pack(anchor="w", pady=(0, 2))
+        ttk.Combobox(
+            control_frame,
+            textvariable=self.size,
+            values=SIZES,
+            state="readonly",
+            width=15,
+        ).pack(fill=tk.X, pady=(0, 8))
 
-        ttk.Label(frame, text="Frames (vertical strip)").pack(anchor="w", pady=(8,0))
-        ttk.Spinbox(frame, from_=1, to=32, textvariable=self.frames)\
-            .pack(fill=tk.X)
+        ttk.Label(control_frame, text="Frames").pack(anchor="w", pady=(0, 2))
+        ttk.Spinbox(
+            control_frame,
+            from_=1,
+            to=32,
+            textvariable=self.frames,
+            width=17,
+        ).pack(fill=tk.X, pady=(0, 8))
 
-        seed_frame = ttk.Frame(frame)
-        seed_frame.pack(fill=tk.X, pady=(8,0))
-        ttk.Checkbutton(seed_frame, text="Use seed", variable=self.use_seed)\
-            .pack(side=tk.LEFT)
-        ttk.Entry(seed_frame, textvariable=self.seed, width=6)\
-            .pack(side=tk.LEFT, padx=(4,0))
+        # Seed control
+        seed_frame = ttk.LabelFrame(control_frame, text="Seed", padding=4)
+        seed_frame.pack(fill=tk.X, pady=(0, 8))
+        ttk.Checkbutton(
+            seed_frame,
+            text="Use custom seed",
+            variable=self.use_seed,
+        ).pack(anchor="w")
+        ttk.Entry(
+            seed_frame,
+            textvariable=self.seed,
+            width=18,
+        ).pack(fill=tk.X, pady=(4, 0))
 
-        ttk.Button(frame, text="Update preview", command=self.update_preview)\
-            .pack(fill=tk.X, pady=(12,0))
-        ttk.Button(frame, text="Save PNG...", command=self.save_png)\
-            .pack(fill=tk.X, pady=(4,0))
+        # Buttons
+        ttk.Button(
+            control_frame,
+            text="Update Preview",
+            command=self._update_preview,
+        ).pack(fill=tk.X, pady=(12, 4))
 
-    def _build_canvas(self):
-        self.canvas_frame = ttk.Frame(self.root, padding=8)
-        self.canvas_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+        ttk.Button(
+            control_frame,
+            text="Save PNG...",
+            command=self._save_png,
+        ).pack(fill=tk.X)
 
-        self.canvas = tk.Canvas(self.canvas_frame, bg="#202020", width=256, height=256)
+        # Right canvas panel
+        canvas_frame = ttk.LabelFrame(self.root, text="Preview", padding=4)
+        canvas_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+
+        self.canvas = tk.Canvas(
+            canvas_frame,
+            bg="#2a2a2a",
+            width=DEFAULT_PREVIEW_SIZE,
+            height=DEFAULT_PREVIEW_SIZE,
+        )
         self.canvas.pack(fill=tk.BOTH, expand=True)
 
-    def update_preview(self):
-        size = self.size.get()
-        frames = max(1, int(self.frames.get()))
-        item_type = self.item_type.get()
-        palette_key = self.palette_key.get()
-        seed = self.seed.get() if self.use_seed.get() else None
+    def _update_preview(self) -> None:
+        """Generate and display preview texture."""
+        try:
+            size = self.size.get()
+            frames = max(1, int(self.frames.get()))
+            item_type = self.item_type.get()
+            palette_key = self.palette_key.get()
+            seed = self.seed.get() if self.use_seed.get() else None
 
-        img = core.generate_texture(size, item_type, frames=frames,
-                                    palette_key=palette_key, seed=seed)
+            img = core.generate_texture(
+                size=size,
+                item_type=item_type,
+                frames=frames,
+                palette_key=palette_key,
+                seed=seed,
+            )
 
-        display_size = 256
-        scale_x = display_size // size
-        scale_y = display_size // size
-        scale = min(max(1, scale_x), max(1, scale_y))
+            # Scale for preview display
+            display_size = DEFAULT_PREVIEW_SIZE
+            scale = max(1, display_size // (size * frames))
+            new_w = size * scale
+            new_h = size * frames * scale
 
-        new_w = size
-        new_h = size * frames
-        img_resized = img.resize((new_w*scale, new_h*scale), Image.NEAREST)
+            # Use NEAREST for pixel-perfect rendering
+            img_resized = img.resize((new_w, new_h), resample=0)  # 0 = NEAREST
 
-        self.preview_img_tk = ImageTk.PhotoImage(img_resized)
-        self.canvas.delete("all")
-        self.canvas.config(scrollregion=(0,0,new_w*scale,new_h*scale))
-        self.canvas.create_image(0, 0, anchor="nw", image=self.preview_img_tk)
+            self.preview_img_tk = ImageTk.PhotoImage(img_resized)
+            self.canvas.delete("all")
+            self.canvas.create_image(
+                display_size // 2,
+                display_size // 2,
+                image=self.preview_img_tk,
+            )
 
-    def save_png(self):
-        size = self.size.get()
-        frames = max(1, int(self.frames.get()))
-        item_type = self.item_type.get()
-        palette_key = self.palette_key.get()
-        seed = self.seed.get() if self.use_seed.get() else None
+        except ValueError as e:
+            messagebox.showerror("Error", f"Invalid parameters: {e}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Unexpected error: {e}")
 
-        img = core.generate_texture(size, item_type, frames=frames,
-                                    palette_key=palette_key, seed=seed)
+    def _save_png(self) -> None:
+        """Save texture to PNG file."""
+        try:
+            size = self.size.get()
+            frames = max(1, int(self.frames.get()))
+            item_type = self.item_type.get()
+            palette_key = self.palette_key.get()
+            seed = self.seed.get() if self.use_seed.get() else None
 
-        path = filedialog.asksaveasfilename(
-            defaultextension=".png",
-            filetypes=[("PNG files","*.png")],
-            initialfile=f"{item_type}_{size}.png"
-        )
-        if not path:
-            return
-        img.save(path)
+            img = core.generate_texture(
+                size=size,
+                item_type=item_type,
+                frames=frames,
+                palette_key=palette_key,
+                seed=seed,
+            )
 
-def main():
+            path = filedialog.asksaveasfilename(
+                defaultextension=".png",
+                filetypes=[("PNG files", "*.png"), ("All files", "*.*")],
+                initialfile=f"{item_type}_{size}.png",
+            )
+
+            if not path:
+                return
+
+            img.save(path)
+            messagebox.showinfo("Success", f"Saved to:\n{path}")
+
+        except ValueError as e:
+            messagebox.showerror("Error", f"Invalid parameters: {e}")
+        except OSError as e:
+            messagebox.showerror("Error", f"Save failed: {e}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Unexpected error: {e}")
+
+
+def main() -> None:
+    """Launch GUI application."""
     root = tk.Tk()
     app = TextureGUI(root)
     root.mainloop()
 
+
 if __name__ == "__main__":
     main()
+

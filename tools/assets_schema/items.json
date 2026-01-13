@@ -7,7 +7,7 @@
       "frames": 4,
       "palette": "liquid_amber",
       "seed": 1001,
-      "output": "assets/brewing/textures/item/amber_beer_bottle.png"
+      "output": "assets/brewing/textures/item/generated/amber_beer_bottle.png"
     },
     {
       "id": "brewing:red_wine_flask",
@@ -16,7 +16,7 @@
       "frames": 6,
       "palette": "liquid_red",
       "seed": 1002,
-      "output": "assets/brewing/textures/item/red_wine_flask.png"
+      "output": "assets/brewing/textures/item/generated/red_wine_flask.png"
     },
     {
       "id": "brewing:barley_seed",
@@ -25,7 +25,7 @@
       "frames": 1,
       "palette": "seed",
       "seed": 2001,
-      "output": "assets/brewing/textures/item/barley_seed.png"
+      "output": "assets/brewing/textures/item/generated/barley_seed.png"
     },
     {
       "id": "brewing:barley_crop",
@@ -34,7 +34,7 @@
       "frames": 4,
       "palette": "crop_green",
       "seed": 2002,
-      "output": "assets/brewing/textures/block/barley_crop.png"
+      "output": "assets/brewing/textures/block/generated/barley_crop.png"
     }
   ]
 }
