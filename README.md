@@ -336,4 +336,4 @@ MIT (see `LICENSE`).
 
 ## Author
 
-Mosberg — https://github.com/mosberg
+[Mosberg](https://github.com/mosberg)
