@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "level=0": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=1": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=2": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=3": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=4": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=5": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=6": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=7": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=8": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=9": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=10": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=11": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=12": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=13": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=14": { "model": "brewing:block/fluid/alcohol_still" },
+    "level=15": { "model": "brewing:block/fluid/alcohol_still" }
+  }
+}

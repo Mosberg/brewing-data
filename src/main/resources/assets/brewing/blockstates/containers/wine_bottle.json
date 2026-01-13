@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "brewing:block/containers/wine_bottle"
+    }
+  }
+}
