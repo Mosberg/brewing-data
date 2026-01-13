@@ -69,7 +69,7 @@ loom {
             server()
             configName = "Minecraft Server"
             ideConfigGenerated = true
-            runDir = "run"
+            runDir = "run-server"
         }
     }
 }
