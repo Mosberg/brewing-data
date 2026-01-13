@@ -1,6 +1,9 @@
 {
   "id": "wine",
   "display_name": "Wine",
-  "abv_range_pct": [8, 16],
+  "abv_range_pct": [
+    8,
+    16
+  ],
   "base_method": "fermentation"
 }

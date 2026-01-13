@@ -17,8 +17,13 @@
   "inventory": {
     "capacity": 12,
     "stack_limit_per_slot": 64,
-    "accepts_item_tags": ["brewing:distillable", "brewing:spirit_base"],
-    "rejects_item_tags": ["brewing:undistillable"],
+    "accepts_item_tags": [
+      "brewing:distillable",
+      "brewing:spirit_base"
+    ],
+    "rejects_item_tags": [
+      "brewing:undistillable"
+    ],
     "slot_roles": {
       "0-6": "input",
       "7": "fuel",
@@ -27,7 +32,12 @@
     },
     "quick_move": {
       "enabled": true,
-      "priority": ["fuel", "input", "catalyst", "output"]
+      "priority": [
+        "fuel",
+        "input",
+        "catalyst",
+        "output"
+      ]
     }
   },
   "aging": {
@@ -52,7 +62,10 @@
       },
       "pressure": {
         "affects_output": true,
-        "optimal_range": [0.8, 1.2]
+        "optimal_range": [
+          0.8,
+          1.2
+        ]
       }
     }
   },
@@ -111,7 +124,11 @@
       "F": "minecraft:furnace",
       "B": "minecraft:bucket"
     },
-    "pattern": ["GCG", "CBC", "IFI"]
+    "pattern": [
+      "GCG",
+      "CBC",
+      "IFI"
+    ]
   },
   "meta": {
     "display_name": "Copper Distillery",

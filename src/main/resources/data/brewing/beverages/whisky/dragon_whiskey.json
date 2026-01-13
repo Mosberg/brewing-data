@@ -216,7 +216,9 @@
   "gates": {
     "requires_feature_flag": "brewing:nether_brewing",
     "requires_gamerule_true": "doAlchemyBrewing",
-    "requires_mod_loaded": ["brewing"],
+    "requires_mod_loaded": [
+      "brewing"
+    ],
     "min_player_level": 40
   },
   "client": {

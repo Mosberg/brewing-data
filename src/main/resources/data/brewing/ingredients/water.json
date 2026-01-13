@@ -1,1 +1,5 @@
-{ "id": "water", "display_name": "Water", "kind": "fluid" }
+{
+  "id": "water",
+  "display_name": "Water",
+  "kind": "fluid"
+}

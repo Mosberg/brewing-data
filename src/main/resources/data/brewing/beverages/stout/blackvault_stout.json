@@ -1,22 +1,27 @@
 {
   "type": "brewing:beverage",
   "schema_version": 2,
-
   "id": "brewing:blackvault_stout",
   "category": "beer",
   "style": "stout",
-
   "container": "brewing:aluminum_can",
   "rarity": "rare",
   "stack_size": 24,
-
   "brewing": {
     "brew_time_seconds": 35,
     "brew_time_ticks": 700,
-    "station_tags": ["brewing:fermentation_stations"],
+    "station_tags": [
+      "brewing:fermentation_stations"
+    ],
     "difficulty": 2,
     "batch_size_servings": 8,
-    "byproducts": [{ "item": "minecraft:bucket", "count": 1, "chance": 1.0 }],
+    "byproducts": [
+      {
+        "item": "minecraft:bucket",
+        "count": 1,
+        "chance": 1.0
+      }
+    ],
     "failure": {
       "enabled": true,
       "base_fail_chance": 0.06,
@@ -31,29 +36,33 @@
       ]
     }
   },
-
   "stats": {
     "alcohol_by_volume": 8.2,
     "strength": 0.44,
-    "intoxication": { "value": 0.28, "decay_rate_per_tick": 0.001 },
-    "nutrition": { "hunger": 2, "saturation": 0.18 }
+    "intoxication": {
+      "value": 0.28,
+      "decay_rate_per_tick": 0.001
+    },
+    "nutrition": {
+      "hunger": 2,
+      "saturation": 0.18
+    }
   },
-
   "quality": {
     "tier": "AGED",
     "supports_quality": true,
     "quality_on_brew": 0.7
   },
-
   "aging": {
     "supported": true,
     "min_days": 7,
     "max_days": 60,
-    "preferred_container_tags": ["brewing:barrels"],
+    "preferred_container_tags": [
+      "brewing:barrels"
+    ],
     "quality_bonus_per_day": 0.015,
     "risk_per_day_open": 0.03
   },
-
   "spoilage": {
     "enabled": true,
     "base_decay_per_day": 0.018,
@@ -64,19 +73,19 @@
       "cold_decay_multiplier": 0.85
     }
   },
-
   "carbonation": {
     "level": "low",
-    "foam": { "enabled": true, "spill_chance_on_open": 0.02 }
+    "foam": {
+      "enabled": true,
+      "spill_chance_on_open": 0.02
+    }
   },
-
   "visuals": {
     "liquid_color": 2894632,
     "bubbles": "light",
     "glow": "none",
     "particle": "minecraft:bubble"
   },
-
   "effects": [
     {
       "effect": "minecraft:resistance",
@@ -91,14 +100,24 @@
       "chance": 0.18
     }
   ],
-
   "ingredients": [
-    { "item": "minecraft:water_bucket", "count": 1 },
-    { "item": "brewing:roasted_barley", "count": 2 },
-    { "item": "minecraft:cocoa_beans", "count": 2 },
-    { "item": "brewing:hops", "count": 1 }
+    {
+      "item": "minecraft:water_bucket",
+      "count": 1
+    },
+    {
+      "item": "brewing:roasted_barley",
+      "count": 2
+    },
+    {
+      "item": "minecraft:cocoa_beans",
+      "count": 2
+    },
+    {
+      "item": "brewing:hops",
+      "count": 1
+    }
   ],
-
   "tags": [
     "brewing:alcoholic",
     "brewing:beer",
@@ -106,24 +125,24 @@
     "brewing:ageable",
     "brewing:can_served"
   ],
-
   "loot": {
     "weight": 2,
-    "tables": ["brewing:dungeon", "brewing:stronghold", "brewing:tavern_rare"]
+    "tables": [
+      "brewing:dungeon",
+      "brewing:stronghold",
+      "brewing:tavern_rare"
+    ]
   },
-
   "gates": {
     "requires_feature_flag": "brewing:liquids",
     "requires_gamerule_true": "enableAlcoholEffects"
   },
-
   "client": {
     "use_liquid_tint": true,
     "show_strength_line": true,
     "show_quality_line": true,
     "show_spoilage_hint": true
   },
-
   "text": {
     "name_key": "item.brewing.blackvault_stout",
     "lore_key": "item.brewing.blackvault_stout.desc",

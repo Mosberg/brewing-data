@@ -17,8 +17,13 @@
   "inventory": {
     "capacity": 9,
     "stack_limit_per_slot": 64,
-    "accepts_item_tags": ["brewing:fermentable", "brewing:ingredient"],
-    "rejects_item_tags": ["brewing:non_fermentable"],
+    "accepts_item_tags": [
+      "brewing:fermentable",
+      "brewing:ingredient"
+    ],
+    "rejects_item_tags": [
+      "brewing:non_fermentable"
+    ],
     "slot_roles": {
       "0-5": "input",
       "6": "catalyst",
@@ -26,7 +31,11 @@
     },
     "quick_move": {
       "enabled": true,
-      "priority": ["input", "catalyst", "output"]
+      "priority": [
+        "input",
+        "catalyst",
+        "output"
+      ]
     }
   },
   "aging": {
@@ -45,18 +54,28 @@
     },
     "environment_modifiers": {
       "temperature": {
-        "optimal_range": [15, 25],
+        "optimal_range": [
+          15,
+          25
+        ],
         "penalty_per_degree": 0.02
       },
       "humidity": {
-        "optimal_range": [40, 70],
+        "optimal_range": [
+          40,
+          70
+        ],
         "affects_quality": true
       }
     }
   },
   "wood_variants": {
     "supports_variants": true,
-    "allowed_types": ["oak", "spruce", "birch"],
+    "allowed_types": [
+      "oak",
+      "spruce",
+      "birch"
+    ],
     "wood_affects_flavor": true
   },
   "interaction": {
@@ -101,7 +120,11 @@
       "I": "minecraft:iron_ingot",
       "G": "minecraft:glass"
     },
-    "pattern": ["WIW", "WGW", "WWW"]
+    "pattern": [
+      "WIW",
+      "WGW",
+      "WWW"
+    ]
   },
   "meta": {
     "display_name": "Oak Fermenter",

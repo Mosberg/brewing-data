@@ -10,7 +10,10 @@
   "brewing": {
     "brew_time_seconds": 900,
     "brew_time_ticks": 18000,
-    "station_tags": ["brewing:distillery", "brewing:still"],
+    "station_tags": [
+      "brewing:distillery",
+      "brewing:still"
+    ],
     "difficulty": 5,
     "batch_size_servings": 6,
     "byproducts": [],
@@ -111,7 +114,10 @@
   ],
   "loot": {
     "weight": 5,
-    "tables": ["brewing:chests/distillery", "brewing:chests/tavern"]
+    "tables": [
+      "brewing:chests/distillery",
+      "brewing:chests/tavern"
+    ]
   },
   "gates": {
     "requires_feature_flag": "brewing:distillation",

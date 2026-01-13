@@ -27,7 +27,11 @@
   "liquid": {
     "can_contain_liquid": true,
     "capacity_mb": 50000,
-    "accepted_tags": ["brewing:beer", "brewing:spirit", "brewing:ageable"],
+    "accepted_tags": [
+      "brewing:beer",
+      "brewing:spirit",
+      "brewing:ageable"
+    ],
     "default_fill_mb": 0,
     "transfer": {
       "fill_rate_mb_per_tick": 100,
@@ -73,8 +77,14 @@
     "return_item_id": "brewing:oak_barrel",
     "consume_on_use": false,
     "consume_on_drink": false,
-    "allow_fill_from": ["brewing:brewing_stand", "brewing:fermenter"],
-    "allow_pour_to": ["brewing:aluminum_can", "brewing:glass_flask"]
+    "allow_fill_from": [
+      "brewing:brewing_stand",
+      "brewing:fermenter"
+    ],
+    "allow_pour_to": [
+      "brewing:aluminum_can",
+      "brewing:glass_flask"
+    ]
   },
   "client": {
     "render_mode": "block_entity",

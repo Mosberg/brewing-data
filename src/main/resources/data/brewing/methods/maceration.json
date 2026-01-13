@@ -1,7 +1,8 @@
 {
-  "id": "maceration",
-  "display_name": "Maceration",
-  "summary": "Steep botanicals in spirit for extraction.",
-  "time_ticks": 6000,
-  "requires": ["botanical_basket"]
+  "id": "brewing:maceration",
+  "name_key": "brewing.method.maceration.name",
+  "tooltip_key": "brewing.method.maceration.tooltip",
+  "roles": [
+    "brewing:infuser"
+  ]
 }

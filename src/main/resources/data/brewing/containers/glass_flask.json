@@ -2,18 +2,15 @@
   "type": "brewing:container",
   "id": "brewing:glass_flask",
   "container_kind": "flask",
-
   "stack_size": 16,
   "rarity": "common",
   "category": "containers",
-
   "durability": {
     "breakable": true,
     "max_damage": 0,
     "fireproof": false,
     "explosion_resistance": "low"
   },
-
   "liquid": {
     "can_contain_liquid": true,
     "capacity_mb": 250,
@@ -30,7 +27,6 @@
       "allow_partial": true
     }
   },
-
   "seal": {
     "starts_sealed": false,
     "reopenable": true,
@@ -39,7 +35,6 @@
     "oxidation_multiplier_open": 1.75,
     "spoilage_multiplier_open": 1.25
   },
-
   "pressure": {
     "supports_pressure": false,
     "carbonation_style": "none",
@@ -51,50 +46,46 @@
       "burst_sound": "minecraft:entity.item.break"
     }
   },
-
   "temperature": {
     "insulation_factor": 0.3,
     "preferred_serving": "cool",
     "freezing_safe": true,
     "heat_safe": false
   },
-
   "interaction": {
     "use_action": "drink",
     "returns_container": true,
     "return_item_id": "brewing:glass_flask",
     "consume_on_drink": false,
-
     "allow_fill_from": [
       "brewing:aluminum_keg",
       "brewing:distillation_apparatus"
     ],
-    "allow_pour_to": ["brewing:aluminum_keg", "brewing:wooden_barrel"]
+    "allow_pour_to": [
+      "brewing:aluminum_keg",
+      "brewing:wooden_barrel"
+    ],
+    "consume_on_use": false
   },
-
   "client": {
     "render_mode": "item_with_liquid_tint",
     "liquid_tint_from_content": true,
     "show_fill_level_tooltip": true,
     "fill_level_steps": 5
   },
-
   "gates": {
     "requires_feature_flag": "brewing:liquids",
     "requires_gamerule_true": "enableAlcoholEffects"
   },
-
   "text": {
     "lore_key": "item.brewing.glass_flask.desc",
     "tooltip_key": "item.brewing.glass_flask.tooltip",
     "flavor_text_key": "item.brewing.glass_flask.flavor_text",
     "crafting_instructions_key": "item.brewing.glass_flask.crafting_instructions"
   },
-
   "state_storage": {
     "mode": "both",
     "schema_version": 1,
-
     "defaults": {
       "payload": {
         "content_id": "",
@@ -106,7 +97,6 @@
         "created_time": 0
       }
     },
-
     "item_nbt": {
       "enabled": true,
       "nbt_root": "AlchemyContainer",
@@ -121,7 +111,6 @@
         "created_time": "created_time"
       }
     },
-
     "placed_block": {
       "enabled": true,
       "block_id": "brewing:placed_glass_flask",
@@ -129,7 +118,6 @@
       "sync_to_client": true,
       "drops_keep_contents": true
     },
-
     "conversion": {
       "on_place": "copy_item_nbt_to_block_entity",
       "on_break": "copy_block_entity_to_item_nbt",

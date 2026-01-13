@@ -1,1 +1,5 @@
-{ "id": "rye", "display_name": "Rye", "kind": "grain" }
+{
+  "id": "rye",
+  "display_name": "Rye",
+  "kind": "grain"
+}

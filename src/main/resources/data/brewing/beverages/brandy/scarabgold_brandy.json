@@ -1,25 +1,29 @@
 {
   "type": "brewing:beverage",
   "schema_version": 2,
-
   "id": "brewing:scarabgold_brandy",
   "category": "spirit",
   "style": "brandy",
-
   "container": "brewing:glass_flask",
   "rarity": "rare",
   "stack_size": 10,
-
   "brew_time_seconds": 50,
   "brew_time_ticks": 1000,
-
   "brewing": {
     "brew_time_seconds": 50,
     "brew_time_ticks": 1000,
-    "station_tags": ["brewing:distillation_stations"],
+    "station_tags": [
+      "brewing:distillation_stations"
+    ],
     "difficulty": 3,
     "batch_size_servings": 4,
-    "byproducts": [{ "item": "minecraft:bucket", "count": 1, "chance": 1.0 }],
+    "byproducts": [
+      {
+        "item": "minecraft:bucket",
+        "count": 1,
+        "chance": 1.0
+      }
+    ],
     "failure": {
       "enabled": true,
       "base_fail_chance": 0.06,
@@ -34,29 +38,33 @@
       ]
     }
   },
-
   "stats": {
     "alcohol_by_volume": 48.0,
     "strength": 0.7,
-    "intoxication": { "value": 0.32, "decay_rate_per_tick": 0.001 },
-    "nutrition": { "hunger": 0, "saturation": 0.0 }
+    "intoxication": {
+      "value": 0.32,
+      "decay_rate_per_tick": 0.001
+    },
+    "nutrition": {
+      "hunger": 0,
+      "saturation": 0.0
+    }
   },
-
   "quality": {
     "tier": "AGED",
     "supports_quality": true,
     "quality_on_brew": 0.7
   },
-
   "aging": {
     "supported": true,
     "min_days": 7,
     "max_days": 60,
-    "preferred_container_tags": ["brewing:barrels"],
+    "preferred_container_tags": [
+      "brewing:barrels"
+    ],
     "quality_bonus_per_day": 0.014,
     "risk_per_day_open": 0.03
   },
-
   "spoilage": {
     "enabled": true,
     "base_decay_per_day": 0.01,
@@ -67,19 +75,19 @@
       "cold_decay_multiplier": 0.9
     }
   },
-
   "carbonation": {
     "level": "none",
-    "foam": { "enabled": false, "spill_chance_on_open": 0.0 }
+    "foam": {
+      "enabled": false,
+      "spill_chance_on_open": 0.0
+    }
   },
-
   "visuals": {
     "liquid_color": 14200880,
     "bubbles": "none",
     "glow": "strong",
     "particle": "minecraft:enchanted_hit"
   },
-
   "effects": [
     {
       "effect": "minecraft:absorption",
@@ -94,15 +102,28 @@
       "chance": 0.3
     }
   ],
-
   "ingredients": [
-    { "item": "minecraft:water_bucket", "count": 1 },
-    { "item": "minecraft:sweet_berries", "count": 8 },
-    { "item": "minecraft:sugar", "count": 2 },
-    { "item": "brewing:yeast", "count": 1 },
-    { "item": "minecraft:gold_nugget", "count": 2 }
+    {
+      "item": "minecraft:water_bucket",
+      "count": 1
+    },
+    {
+      "item": "minecraft:sweet_berries",
+      "count": 8
+    },
+    {
+      "item": "minecraft:sugar",
+      "count": 2
+    },
+    {
+      "item": "brewing:yeast",
+      "count": 1
+    },
+    {
+      "item": "minecraft:gold_nugget",
+      "count": 2
+    }
   ],
-
   "tags": [
     "brewing:alcoholic",
     "brewing:spirit",
@@ -111,23 +132,22 @@
     "brewing:royal",
     "brewing:distilled"
   ],
-
   "loot": {
     "weight": 2,
-    "tables": ["brewing:desert_pyramid", "brewing:bossdrop"]
+    "tables": [
+      "brewing:desert_pyramid",
+      "brewing:bossdrop"
+    ]
   },
-
   "gates": {
     "requires_feature_flag": "brewing:liquids",
     "requires_gamerule_true": "enableAlcoholEffects"
   },
-
   "client": {
     "use_liquid_tint": true,
     "show_strength_line": true,
     "show_quality_line": true
   },
-
   "name_key": "item.brewing.scarabgold_brandy",
   "lore_key": "item.brewing.scarabgold_brandy.desc",
   "tooltip_key": "item.brewing.scarabgold_brandy.tooltip",

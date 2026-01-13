@@ -1,7 +1,8 @@
 {
-  "id": "aging",
-  "display_name": "Aging",
-  "summary": "Develop wood-derived flavors over time.",
-  "time_ticks": 48000,
-  "requires": ["aging_barrel"]
+  "id": "brewing:aging",
+  "name_key": "brewing.method.aging.name",
+  "tooltip_key": "brewing.method.aging.tooltip",
+  "roles": [
+    "brewing:barrel"
+  ]
 }

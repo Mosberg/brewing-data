@@ -1,1 +1,5 @@
-{ "id": "wheat", "display_name": "Wheat", "kind": "grain" }
+{
+  "id": "wheat",
+  "display_name": "Wheat",
+  "kind": "grain"
+}

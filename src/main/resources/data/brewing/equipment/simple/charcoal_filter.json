@@ -1,6 +1,0 @@
-{
-  "id": "charcoal_filter",
-  "display_name": "Charcoal Filter",
-  "roles": ["filtration"],
-  "power": { "type": "none" }
-}

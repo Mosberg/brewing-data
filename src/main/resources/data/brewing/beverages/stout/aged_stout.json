@@ -10,7 +10,10 @@
   "brewing": {
     "brew_time_seconds": 600,
     "brew_time_ticks": 12000,
-    "station_tags": ["brewing:master_brewery", "brewing:fermenter"],
+    "station_tags": [
+      "brewing:master_brewery",
+      "brewing:fermenter"
+    ],
     "difficulty": 7,
     "batch_size_servings": 8,
     "byproducts": [
@@ -60,7 +63,10 @@
     "supported": true,
     "min_days": 7,
     "max_days": 90,
-    "preferred_container_tags": ["brewing:barrel", "brewing:oak"],
+    "preferred_container_tags": [
+      "brewing:barrel",
+      "brewing:oak"
+    ],
     "quality_bonus_per_day": 0.005,
     "risk_per_day_open": 0.01
   },
@@ -125,10 +131,18 @@
       "count": 1
     }
   ],
-  "tags": ["brewing:beer", "brewing:stout", "brewing:aged", "brewing:premium"],
+  "tags": [
+    "brewing:beer",
+    "brewing:stout",
+    "brewing:aged",
+    "brewing:premium"
+  ],
   "loot": {
     "weight": 3,
-    "tables": ["brewing:chests/master_brewery", "brewing:chests/rare_tavern"]
+    "tables": [
+      "brewing:chests/master_brewery",
+      "brewing:chests/rare_tavern"
+    ]
   },
   "gates": {
     "requires_feature_flag": "brewing:advanced_brewing",

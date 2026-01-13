@@ -1,0 +1,111 @@
+{
+  "type": "brewing:container",
+  "id": "brewing:wine_bottle",
+  "container_kind": "flask",
+  "stack_size": 16,
+  "rarity": "common",
+  "category": "containers",
+  "durability": {
+    "breakable": true,
+    "max_damage": 0,
+    "fireproof": false,
+    "explosion_resistance": "low"
+  },
+  "liquid": {
+    "can_contain_liquid": true,
+    "capacity_mb": 750,
+    "accepted_tags": [
+      "brewing:all_beverages"
+    ],
+    "default_fill_mb": 0,
+    "transfer": {
+      "fill_rate_mb_per_tick": 50,
+      "pour_rate_mb_per_tick": 50,
+      "allow_partial": true
+    }
+  },
+  "seal": {
+    "starts_sealed": true,
+    "reopenable": true,
+    "seal_quality": "standard",
+    "leak_chance_per_minute_open": 0.0,
+    "oxidation_multiplier_open": 1.0,
+    "spoilage_multiplier_open": 1.0
+  },
+  "pressure": {
+    "supports_pressure": false,
+    "carbonation_style": "none",
+    "max_pressure": 0,
+    "burst": {
+      "enabled": false,
+      "pressure_threshold": 0,
+      "drop_contents_on_burst": false,
+      "burst_sound": "minecraft:block.glass.break"
+    }
+  },
+  "temperature": {
+    "insulation_factor": 1,
+    "preferred_serving": "ambient",
+    "freezing_safe": false,
+    "heat_safe": false
+  },
+  "interaction": {
+    "use_action": "drink",
+    "returns_container": true,
+    "return_item_id": "brewing:wine_bottle",
+    "consume_on_use": false,
+    "consume_on_drink": true
+  },
+  "client": {
+    "render_mode": "default",
+    "liquid_tint_from_content": true,
+    "show_fill_level_tooltip": true,
+    "fill_level_steps": 5
+  },
+  "gates": {
+    "requires_feature_flag": "brewing:enabled",
+    "requires_gamerule_true": "brewingEnabled"
+  },
+  "text": {
+    "lore_key": "brewing.container.wine_bottle.lore",
+    "tooltip_key": "brewing.container.wine_bottle.tooltip",
+    "flavor_text_key": "brewing.container.wine_bottle.flavor",
+    "crafting_instructions_key": "brewing.container.wine_bottle.instructions"
+  },
+  "state_storage": {
+    "mode": "item",
+    "schema_version": 1,
+    "defaults": {
+      "payload": {
+        "content_id": "",
+        "amount_mb": 0,
+        "quality": 0,
+        "temperature": "ambient",
+        "pressure": 0,
+        "sealed": true,
+        "created_time": 0
+      }
+    },
+    "item_nbt": {
+      "enabled": true,
+      "nbt_root": "tag",
+      "payload_key": "Beverage",
+      "fields": {}
+    },
+    "placed_block": {
+      "enabled": false,
+      "block_id": "minecraft:air",
+      "block_entity_id": "minecraft:air",
+      "sync_to_client": false,
+      "drops_keep_contents": false
+    },
+    "conversion": {
+      "on_place": "replace",
+      "on_break": "replace",
+      "merge_strategy": "replace"
+    }
+  },
+  "meta": {
+    "display_name": "Wine Bottle"
+  }
+}

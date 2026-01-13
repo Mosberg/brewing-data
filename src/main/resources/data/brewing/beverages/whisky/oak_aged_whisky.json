@@ -1,27 +1,121 @@
 {
+  "type": "brewing:beverage",
+  "schema_version": 1,
   "id": "brewing:whisky/oak_aged_whisky",
-  "display_name": "Oak-Aged Whisky",
-  "alcohol_type": "whisky",
-  "target_abv_pct": 45,
-  "container_defaults": ["glass_flask", "oak_barrel"],
-  "ingredient_profile": [
-    { "ingredient": "water", "amount": 1000, "unit": "mB" },
-    { "ingredient": "barley", "amount": 5, "unit": "item" },
-    { "ingredient": "yeast", "amount": 1, "unit": "item" },
-    { "ingredient": "oak_chips", "amount": 2, "unit": "item" }
-  ],
-  "process": [
+  "category": "spirit",
+  "style": "whisky",
+  "container": "brewing:glass_flask",
+  "rarity": "common",
+  "stack_size": 16,
+  "brewing": {
+    "brew_time_seconds": 120,
+    "brew_time_ticks": 2400,
+    "station_tags": [
+      "brewing:fermenter",
+      "brewing:still",
+      "brewing:barrel"
+    ],
+    "difficulty": 2,
+    "batch_size_servings": 4,
+    "byproducts": [],
+    "failure": {
+      "enabled": false
+    }
+  },
+  "stats": {
+    "alcohol_by_volume": 45.0,
+    "strength": 1.0,
+    "intoxication": {
+      "value": 1.0,
+      "decay_rate_per_tick": 0.001
+    },
+    "nutrition": {
+      "hunger": 0,
+      "saturation": 0.0
+    }
+  },
+  "quality": {
+    "tier": "standard",
+    "supports_quality": true,
+    "quality_on_brew": 0.5,
+    "quality_floor": 0.2,
+    "quality_ceiling": 0.9
+  },
+  "aging": {
+    "supported": false
+  },
+  "spoilage": {
+    "enabled": false
+  },
+  "carbonation": {
+    "level": "none",
+    "foam": {
+      "enabled": false,
+      "spill_chance_on_open": 0.0
+    }
+  },
+  "visuals": {
+    "liquid_color": 16765040,
+    "bubbles": "none",
+    "glow": "none",
+    "particle": "minecraft:happy_villager"
+  },
+  "effects": [],
+  "ingredients": [
     {
-      "method": "fermentation",
-      "equipment": "oak_fermenter",
-      "intermediate": "fermented_wash"
+      "item": "minecraft:water_bucket",
+      "count": 1
     },
     {
-      "method": "distillation",
-      "equipment": "copper_distillery",
-      "intermediate": "raw_spirit"
+      "item": "brewing:barley",
+      "count": 5
     },
-    { "method": "aging", "equipment": "aging_barrel" }
+    {
+      "item": "brewing:yeast",
+      "count": 1
+    },
+    {
+      "item": "brewing:oak_chips",
+      "count": 2
+    }
   ],
-  "tags": ["spirit", "whisky", "distilled", "aged"]
+  "tags": [
+    "brewing:spirit",
+    "brewing:whisky",
+    "brewing:distilled",
+    "brewing:aged"
+  ],
+  "loot": {
+    "weight": 0,
+    "tables": []
+  },
+  "gates": {
+    "requires_feature_flag": "brewing:enabled",
+    "requires_gamerule_true": "brewingEnabled"
+  },
+  "client": {
+    "use_liquid_tint": true,
+    "show_strength_line": true,
+    "show_quality_line": true,
+    "show_spoilage_hint": false,
+    "show_alcohol_by_volume": true,
+    "tooltip_theme": "default"
+  },
+  "text": {
+    "name_key": "brewing.beverage.whisky.oak_aged_whisky.name",
+    "lore_key": "brewing.beverage.whisky.oak_aged_whisky.lore",
+    "tooltip_key": "brewing.beverage.whisky.oak_aged_whisky.tooltip",
+    "effect_text_key": "brewing.beverage.whisky.oak_aged_whisky.effects",
+    "brew_time_text_key": "brewing.beverage.whisky.oak_aged_whisky.brew_time",
+    "ingredients_text_key": "brewing.beverage.whisky.oak_aged_whisky.ingredients",
+    "container_text_key": "brewing.beverage.whisky.oak_aged_whisky.container",
+    "rarity_text_key": "brewing.beverage.whisky.oak_aged_whisky.rarity",
+    "category_text_key": "brewing.beverage.whisky.oak_aged_whisky.category",
+    "flavor_text_key": "brewing.beverage.whisky.oak_aged_whisky.flavor",
+    "warning_key": "brewing.beverage.whisky.oak_aged_whisky.warning",
+    "crafting_instructions_key": "brewing.beverage.whisky.oak_aged_whisky.instructions"
+  },
+  "meta": {
+    "display_name": "Oak-Aged Whisky"
+  }
 }

@@ -1,1 +1,5 @@
-{ "id": "hops", "display_name": "Hops", "kind": "botanical" }
+{
+  "id": "hops",
+  "display_name": "Hops",
+  "kind": "botanical"
+}

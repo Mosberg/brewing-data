@@ -13,8 +13,11 @@
   },
   "liquid": {
     "can_contain_liquid": true,
-    "capacity_mb": 5000,
-    "accepted_tags": ["brewing:beer", "brewing:carbonated"],
+    "capacity_mb": 30000,
+    "accepted_tags": [
+      "brewing:beer",
+      "brewing:carbonated"
+    ],
     "default_fill_mb": 0,
     "transfer": {
       "fill_rate_mb_per_tick": 50,
@@ -59,8 +62,14 @@
     "return_item_id": "brewing:copper_keg",
     "consume_on_use": false,
     "consume_on_drink": false,
-    "allow_fill_from": ["brewing:fermenter", "brewing:brewing_stand"],
-    "allow_pour_to": ["brewing:aluminum_can", "minecraft:glass_bottle"]
+    "allow_fill_from": [
+      "brewing:fermenter",
+      "brewing:brewing_stand"
+    ],
+    "allow_pour_to": [
+      "brewing:aluminum_can",
+      "minecraft:glass_bottle"
+    ]
   },
   "client": {
     "render_mode": "block_entity",

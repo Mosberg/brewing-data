@@ -1,22 +1,27 @@
 {
   "type": "brewing:beverage",
   "schema_version": 2,
-
   "id": "brewing:coppercap_lager",
   "category": "beer",
   "style": "lager",
-
   "container": "brewing:aluminum_can",
   "rarity": "uncommon",
   "stack_size": 24,
-
   "brewing": {
     "brew_time_seconds": 20,
     "brew_time_ticks": 400,
-    "station_tags": ["brewing:fermentation_stations"],
+    "station_tags": [
+      "brewing:fermentation_stations"
+    ],
     "difficulty": 1,
     "batch_size_servings": 8,
-    "byproducts": [{ "item": "minecraft:bucket", "count": 1, "chance": 1.0 }],
+    "byproducts": [
+      {
+        "item": "minecraft:bucket",
+        "count": 1,
+        "chance": 1.0
+      }
+    ],
     "failure": {
       "enabled": true,
       "base_fail_chance": 0.03,
@@ -31,14 +36,18 @@
       ]
     }
   },
-
   "stats": {
     "alcohol_by_volume": 5.4,
     "strength": 0.28,
-    "intoxication": { "value": 0.18, "decay_rate_per_tick": 0.001 },
-    "nutrition": { "hunger": 1, "saturation": 0.1 }
+    "intoxication": {
+      "value": 0.18,
+      "decay_rate_per_tick": 0.001
+    },
+    "nutrition": {
+      "hunger": 1,
+      "saturation": 0.1
+    }
   },
-
   "quality": {
     "tier": "REFINED",
     "supports_quality": true,
@@ -46,16 +55,16 @@
     "quality_floor": 0.15,
     "quality_ceiling": 0.9
   },
-
   "aging": {
     "supported": true,
     "min_days": 2,
     "max_days": 20,
-    "preferred_container_tags": ["brewing:barrels"],
+    "preferred_container_tags": [
+      "brewing:barrels"
+    ],
     "quality_bonus_per_day": 0.01,
     "risk_per_day_open": 0.02
   },
-
   "spoilage": {
     "enabled": true,
     "base_decay_per_day": 0.02,
@@ -66,19 +75,19 @@
       "cold_decay_multiplier": 0.85
     }
   },
-
   "carbonation": {
     "level": "medium",
-    "foam": { "enabled": true, "spill_chance_on_open": 0.03 }
+    "foam": {
+      "enabled": true,
+      "spill_chance_on_open": 0.03
+    }
   },
-
   "visuals": {
     "liquid_color": 14004263,
     "bubbles": "medium",
     "glow": "none",
     "particle": "minecraft:bubble"
   },
-
   "effects": [
     {
       "effect": "minecraft:haste",
@@ -93,13 +102,20 @@
       "chance": 0.15
     }
   ],
-
   "ingredients": [
-    { "item": "minecraft:water_bucket", "count": 1 },
-    { "item": "brewing:barley", "count": 2 },
-    { "item": "minecraft:brown_mushroom", "count": 2 }
+    {
+      "item": "minecraft:water_bucket",
+      "count": 1
+    },
+    {
+      "item": "brewing:barley",
+      "count": 2
+    },
+    {
+      "item": "minecraft:brown_mushroom",
+      "count": 2
+    }
   ],
-
   "tags": [
     "brewing:alcoholic",
     "brewing:beer",
@@ -107,24 +123,23 @@
     "brewing:carbonated",
     "brewing:can_served"
   ],
-
   "loot": {
     "weight": 5,
-    "tables": ["brewing:tavern", "brewing:village"]
+    "tables": [
+      "brewing:tavern",
+      "brewing:village"
+    ]
   },
-
   "gates": {
     "requires_feature_flag": "brewing:liquids",
     "requires_gamerule_true": "enableAlcoholEffects"
   },
-
   "client": {
     "use_liquid_tint": true,
     "show_strength_line": true,
     "show_quality_line": true,
     "show_spoilage_hint": true
   },
-
   "text": {
     "name_key": "item.brewing.coppercap_lager",
     "lore_key": "item.brewing.coppercap_lager.desc",

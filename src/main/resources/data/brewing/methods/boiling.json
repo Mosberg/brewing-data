@@ -1,7 +1,8 @@
 {
-  "id": "boiling",
-  "display_name": "Boiling",
-  "summary": "Sterilize and add bittering/aroma botanicals (like hops).",
-  "time_ticks": 1200,
-  "requires": ["brew_kettle"]
+  "id": "brewing:boiling",
+  "name_key": "brewing.method.boiling.name",
+  "tooltip_key": "brewing.method.boiling.tooltip",
+  "roles": [
+    "brewing:kettle"
+  ]
 }

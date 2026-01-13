@@ -1,7 +1,8 @@
 {
-  "id": "filtration",
-  "display_name": "Filtration",
-  "summary": "Polish flavor and remove impurities.",
-  "time_ticks": 2400,
-  "requires": ["charcoal_filter"]
+  "id": "brewing:filtration",
+  "name_key": "brewing.method.filtration.name",
+  "tooltip_key": "brewing.method.filtration.tooltip",
+  "roles": [
+    "brewing:filter"
+  ]
 }

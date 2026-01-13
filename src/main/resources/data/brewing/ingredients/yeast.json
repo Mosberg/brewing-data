@@ -1,1 +1,5 @@
-{ "id": "yeast", "display_name": "Yeast", "kind": "culture" }
+{
+  "id": "yeast",
+  "display_name": "Yeast",
+  "kind": "culture"
+}
