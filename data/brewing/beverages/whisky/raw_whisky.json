@@ -1,0 +1,21 @@
+{
+  "id": "brewing:whisky/raw_whisky",
+  "display_name": "Raw Whisky",
+  "alcohol_type": "whisky",
+  "target_abv_pct": 45,
+  "container_defaults": ["glass_flask", "oak_barrel"],
+  "ingredient_profile": [
+    { "ingredient": "water", "amount": 1000, "unit": "mB" },
+    { "ingredient": "barley", "amount": 5, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    {
+      "method": "fermentation",
+      "equipment": "oak_fermenter",
+      "intermediate": "fermented_wash"
+    },
+    { "method": "distillation", "equipment": "copper_distillery" }
+  ],
+  "tags": ["spirit", "whisky", "distilled"]
+}

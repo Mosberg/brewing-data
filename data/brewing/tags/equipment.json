@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "brewing:equipment/aging_barrel", "required": false },
+    { "id": "brewing:equipment/botanical_basket", "required": false },
+    { "id": "brewing:equipment/brew_kettle", "required": false },
+    { "id": "brewing:equipment/carbonation_rig", "required": false },
+    { "id": "brewing:equipment/charcoal_filter", "required": false },
+    { "id": "brewing:equipment/copper_distillery", "required": false },
+    { "id": "brewing:equipment/oak_fermenter", "required": false }
+  ]
+}

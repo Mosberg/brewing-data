@@ -1,0 +1,7 @@
+{
+  "id": "wine_bottle",
+  "display_name": "Wine Bottle",
+  "capacity_ml": 750,
+  "allowed_alcohol_types": ["wine", "mead"],
+  "properties": { "sealed": true, "reusable": true, "requires_cork": true }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "conditioning",
+  "display_name": "Conditioning",
+  "summary": "Clarify and optionally carbonate.",
+  "time_ticks": 12000,
+  "requires": ["carbonation_rig"]
+}

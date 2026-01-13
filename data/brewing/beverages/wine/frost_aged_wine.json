@@ -1,0 +1,16 @@
+{
+  "id": "brewing:wine/frost_aged_wine",
+  "display_name": "Frost-Aged Wine",
+  "alcohol_type": "wine",
+  "target_abv_pct": 13,
+  "container_defaults": ["wine_bottle", "wooden_barrel"],
+  "ingredient_profile": [
+    { "ingredient": "grape", "amount": 6, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    { "method": "fermentation", "equipment": "oak_fermenter" },
+    { "method": "conditioning", "equipment": "carbonation_rig" }
+  ],
+  "tags": ["fermented", "fruit"]
+}

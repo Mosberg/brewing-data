@@ -1,0 +1,18 @@
+{
+  "id": "brewing:mead/oak_aged_mead",
+  "display_name": "Oak-Aged Mead",
+  "alcohol_type": "mead",
+  "target_abv_pct": 12,
+  "container_defaults": ["wine_bottle", "wooden_barrel", "oak_barrel"],
+  "ingredient_profile": [
+    { "ingredient": "water", "amount": 1000, "unit": "mB" },
+    { "ingredient": "honey", "amount": 4, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" },
+    { "ingredient": "oak_chips", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    { "method": "fermentation", "equipment": "oak_fermenter" },
+    { "method": "aging", "equipment": "aging_barrel" }
+  ],
+  "tags": ["fermented", "honey", "aged"]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "aging_barrel",
+  "display_name": "Aging Barrel",
+  "roles": ["aging"],
+  "power": { "type": "none" }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "carbonation_rig",
+  "display_name": "Carbonation Rig",
+  "roles": ["conditioning"],
+  "power": { "type": "mechanical", "cost_per_batch": 1 }
+}

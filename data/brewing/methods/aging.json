@@ -1,0 +1,7 @@
+{
+  "id": "aging",
+  "display_name": "Aging",
+  "summary": "Develop wood-derived flavors over time.",
+  "time_ticks": 48000,
+  "requires": ["aging_barrel"]
+}

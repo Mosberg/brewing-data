@@ -1,0 +1,16 @@
+{
+  "id": "brewing:cider/apple_cider",
+  "display_name": "Apple Cider",
+  "alcohol_type": "cider",
+  "target_abv_pct": 6,
+  "container_defaults": ["glass_bottle", "aluminum_can", "copper_keg"],
+  "ingredient_profile": [
+    { "ingredient": "apple", "amount": 6, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    { "method": "fermentation", "equipment": "oak_fermenter" },
+    { "method": "conditioning", "equipment": "carbonation_rig" }
+  ],
+  "tags": ["fermented", "fruit"]
+}

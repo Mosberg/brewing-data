@@ -1,0 +1,7 @@
+{
+  "id": "pressurized_steel_keg",
+  "display_name": "Pressurized Steel Keg",
+  "capacity_ml": 30000,
+  "allowed_alcohol_types": ["beer", "lager", "ale", "stout", "cider"],
+  "properties": { "sealed": true, "reusable": true, "pressurizable": true }
+}

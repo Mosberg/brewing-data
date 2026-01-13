@@ -1,0 +1,7 @@
+{
+  "id": "filtration",
+  "display_name": "Filtration",
+  "summary": "Polish flavor and remove impurities.",
+  "time_ticks": 2400,
+  "requires": ["charcoal_filter"]
+}

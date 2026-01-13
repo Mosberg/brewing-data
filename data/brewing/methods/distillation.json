@@ -1,0 +1,7 @@
+{
+  "id": "distillation",
+  "display_name": "Distillation",
+  "summary": "Concentrate alcohol from a fermented wash.",
+  "time_ticks": 6000,
+  "requires": ["copper_distillery"]
+}

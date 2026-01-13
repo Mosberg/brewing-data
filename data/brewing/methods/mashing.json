@@ -1,0 +1,7 @@
+{
+  "id": "mashing",
+  "display_name": "Mashing",
+  "summary": "Convert grain starches into fermentable sugars.",
+  "time_ticks": 2400,
+  "requires": ["brew_kettle"]
+}

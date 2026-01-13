@@ -1,0 +1,20 @@
+{
+  "id": "brewing:brandy/brandy",
+  "display_name": "Brandy",
+  "alcohol_type": "brandy",
+  "target_abv_pct": 40,
+  "container_defaults": ["glass_flask", "oak_barrel"],
+  "ingredient_profile": [
+    { "ingredient": "grape", "amount": 6, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    {
+      "method": "fermentation",
+      "equipment": "oak_fermenter",
+      "intermediate": "fermented_wash"
+    },
+    { "method": "distillation", "equipment": "copper_distillery" }
+  ],
+  "tags": ["spirit", "brandy", "distilled"]
+}

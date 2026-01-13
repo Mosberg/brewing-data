@@ -1,0 +1,11 @@
+{
+  "id": "aluminum_can",
+  "display_name": "Aluminum Can",
+  "capacity_ml": 330,
+  "allowed_alcohol_types": ["beer", "lager", "ale", "stout", "cider"],
+  "properties": {
+    "sealed": true,
+    "reusable": false,
+    "requires_cork": false
+  }
+}

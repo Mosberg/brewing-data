@@ -1,0 +1,7 @@
+{
+  "id": "boiling",
+  "display_name": "Boiling",
+  "summary": "Sterilize and add bittering/aroma botanicals (like hops).",
+  "time_ticks": 1200,
+  "requires": ["brew_kettle"]
+}

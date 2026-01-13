@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "brewing:alcohol_types/absinthe", "required": false },
+    { "id": "brewing:alcohol_types/ale", "required": false },
+    { "id": "brewing:alcohol_types/beer", "required": false },
+    { "id": "brewing:alcohol_types/brandy", "required": false },
+    { "id": "brewing:alcohol_types/cider", "required": false },
+    { "id": "brewing:alcohol_types/gin", "required": false },
+    { "id": "brewing:alcohol_types/lager", "required": false },
+    { "id": "brewing:alcohol_types/mead", "required": false },
+    { "id": "brewing:alcohol_types/rum", "required": false },
+    { "id": "brewing:alcohol_types/stout", "required": false },
+    { "id": "brewing:alcohol_types/vodka", "required": false },
+    { "id": "brewing:alcohol_types/whiskey", "required": false },
+    { "id": "brewing:alcohol_types/wine", "required": false }
+  ]
+}

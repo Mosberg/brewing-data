@@ -1,0 +1,11 @@
+{
+  "id": "wooden_barrel",
+  "display_name": "Wooden Barrel",
+  "capacity_ml": 50000,
+  "allowed_alcohol_types": ["beer", "ale", "stout", "mead", "wine"],
+  "properties": {
+    "sealed": false,
+    "reusable": true,
+    "aging_supported": true
+  }
+}

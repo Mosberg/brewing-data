@@ -1,0 +1,6 @@
+{
+  "id": "oak_fermenter",
+  "display_name": "Oak Fermenter",
+  "roles": ["fermentation"],
+  "power": { "type": "none" }
+}

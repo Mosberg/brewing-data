@@ -1,0 +1,15 @@
+{
+  "id": "glass_bottle",
+  "display_name": "Glass Bottle",
+  "capacity_ml": 500,
+  "allowed_alcohol_types": [
+    "beer",
+    "lager",
+    "ale",
+    "stout",
+    "mead",
+    "cider",
+    "wine"
+  ],
+  "properties": { "sealed": true, "reusable": true, "requires_cork": true }
+}

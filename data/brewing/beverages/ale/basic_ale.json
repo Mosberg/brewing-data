@@ -1,0 +1,25 @@
+{
+  "id": "brewing:ale/basic_ale",
+  "display_name": "Basic Ale",
+  "alcohol_type": "ale",
+  "target_abv_pct": 5,
+  "container_defaults": [
+    "glass_bottle",
+    "copper_keg",
+    "pressurized_steel_keg",
+    "aluminum_can"
+  ],
+  "ingredient_profile": [
+    { "ingredient": "water", "amount": 1000, "unit": "mB" },
+    { "ingredient": "barley", "amount": 3, "unit": "item" },
+    { "ingredient": "hops", "amount": 1, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    { "method": "mashing", "equipment": "brew_kettle" },
+    { "method": "boiling", "equipment": "brew_kettle" },
+    { "method": "fermentation", "equipment": "oak_fermenter" },
+    { "method": "conditioning", "equipment": "carbonation_rig" }
+  ],
+  "tags": ["beer", "ale", "fermented", "grain"]
+}

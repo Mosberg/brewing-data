@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "brewing:methods/aging", "required": false },
+    { "id": "brewing:methods/boiling", "required": false },
+    { "id": "brewing:methods/conditioning", "required": false },
+    { "id": "brewing:methods/distillation", "required": false },
+    { "id": "brewing:methods/fermentation", "required": false },
+    { "id": "brewing:methods/filtration", "required": false },
+    { "id": "brewing:methods/maceration", "required": false },
+    { "id": "brewing:methods/mashing", "required": false }
+  ]
+}

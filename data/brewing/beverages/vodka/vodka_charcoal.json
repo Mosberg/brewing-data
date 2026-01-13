@@ -1,0 +1,26 @@
+{
+  "id": "brewing:vodka/vodka_charcoal",
+  "display_name": "Charcoal Vodka",
+  "alcohol_type": "vodka",
+  "target_abv_pct": 40,
+  "container_defaults": ["glass_flask"],
+  "ingredient_profile": [
+    { "ingredient": "wheat", "amount": 4, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" },
+    { "ingredient": "charcoal", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    {
+      "method": "fermentation",
+      "equipment": "oak_fermenter",
+      "intermediate": "fermented_wash"
+    },
+    {
+      "method": "distillation",
+      "equipment": "copper_distillery",
+      "intermediate": "raw_spirit"
+    },
+    { "method": "filtration", "equipment": "charcoal_filter" }
+  ],
+  "tags": ["spirit", "vodka", "distilled", "filtered"]
+}

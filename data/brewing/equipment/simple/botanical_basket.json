@@ -1,0 +1,6 @@
+{
+  "id": "botanical_basket",
+  "display_name": "Botanical Basket",
+  "roles": ["maceration"],
+  "power": { "type": "none" }
+}

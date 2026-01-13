@@ -1,0 +1,27 @@
+{
+  "id": "brewing:whisky/oak_aged_whisky",
+  "display_name": "Oak-Aged Whisky",
+  "alcohol_type": "whisky",
+  "target_abv_pct": 45,
+  "container_defaults": ["glass_flask", "oak_barrel"],
+  "ingredient_profile": [
+    { "ingredient": "water", "amount": 1000, "unit": "mB" },
+    { "ingredient": "barley", "amount": 5, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" },
+    { "ingredient": "oak_chips", "amount": 2, "unit": "item" }
+  ],
+  "process": [
+    {
+      "method": "fermentation",
+      "equipment": "oak_fermenter",
+      "intermediate": "fermented_wash"
+    },
+    {
+      "method": "distillation",
+      "equipment": "copper_distillery",
+      "intermediate": "raw_spirit"
+    },
+    { "method": "aging", "equipment": "aging_barrel" }
+  ],
+  "tags": ["spirit", "whisky", "distilled", "aged"]
+}

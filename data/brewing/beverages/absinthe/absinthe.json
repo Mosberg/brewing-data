@@ -1,0 +1,28 @@
+{
+  "id": "brewing:absinthe/absinthe",
+  "display_name": "Absinthe",
+  "alcohol_type": "absinthe",
+  "target_abv_pct": 65,
+  "container_defaults": ["glass_flask"],
+  "ingredient_profile": [
+    { "ingredient": "rye", "amount": 4, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" },
+    { "ingredient": "wormwood", "amount": 2, "unit": "item" },
+    { "ingredient": "anise", "amount": 1, "unit": "item" },
+    { "ingredient": "fennel", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    {
+      "method": "fermentation",
+      "equipment": "oak_fermenter",
+      "intermediate": "fermented_wash"
+    },
+    {
+      "method": "distillation",
+      "equipment": "copper_distillery",
+      "intermediate": "raw_spirit"
+    },
+    { "method": "maceration", "equipment": "botanical_basket" }
+  ],
+  "tags": ["spirit", "absinthe", "distilled", "botanical"]
+}

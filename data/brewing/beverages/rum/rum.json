@@ -1,0 +1,21 @@
+{
+  "id": "brewing:rum/rum",
+  "display_name": "Rum",
+  "alcohol_type": "rum",
+  "target_abv_pct": 40,
+  "container_defaults": ["glass_flask", "oak_barrel"],
+  "ingredient_profile": [
+    { "ingredient": "sugarcane", "amount": 6, "unit": "item" },
+    { "ingredient": "molasses", "amount": 2, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    {
+      "method": "fermentation",
+      "equipment": "oak_fermenter",
+      "intermediate": "fermented_wash"
+    },
+    { "method": "distillation", "equipment": "copper_distillery" }
+  ],
+  "tags": ["spirit", "rum", "distilled", "sweet"]
+}

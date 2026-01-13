@@ -1,0 +1,20 @@
+{
+  "id": "brewing:stout/stout_dark",
+  "display_name": "Dark Stout",
+  "alcohol_type": "stout",
+  "target_abv_pct": 7,
+  "container_defaults": ["glass_bottle", "copper_keg", "pressurized_steel_keg"],
+  "ingredient_profile": [
+    { "ingredient": "water", "amount": 1000, "unit": "mB" },
+    { "ingredient": "barley", "amount": 4, "unit": "item" },
+    { "ingredient": "hops", "amount": 1, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" }
+  ],
+  "process": [
+    { "method": "mashing", "equipment": "brew_kettle" },
+    { "method": "boiling", "equipment": "brew_kettle" },
+    { "method": "fermentation", "equipment": "oak_fermenter" },
+    { "method": "conditioning", "equipment": "carbonation_rig" }
+  ],
+  "tags": ["beer", "stout", "fermented", "grain"]
+}

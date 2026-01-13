@@ -1,0 +1,26 @@
+{
+  "id": "brewing:gin/gin",
+  "display_name": "Gin",
+  "alcohol_type": "gin",
+  "target_abv_pct": 42,
+  "container_defaults": ["glass_flask"],
+  "ingredient_profile": [
+    { "ingredient": "corn", "amount": 4, "unit": "item" },
+    { "ingredient": "yeast", "amount": 1, "unit": "item" },
+    { "ingredient": "juniper", "amount": 2, "unit": "item" }
+  ],
+  "process": [
+    {
+      "method": "fermentation",
+      "equipment": "oak_fermenter",
+      "intermediate": "fermented_wash"
+    },
+    {
+      "method": "distillation",
+      "equipment": "copper_distillery",
+      "intermediate": "raw_spirit"
+    },
+    { "method": "maceration", "equipment": "botanical_basket" }
+  ],
+  "tags": ["spirit", "gin", "distilled", "botanical"]
+}

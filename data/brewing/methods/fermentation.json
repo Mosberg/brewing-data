@@ -1,0 +1,7 @@
+{
+  "id": "fermentation",
+  "display_name": "Fermentation",
+  "summary": "Convert sugars into alcohol and CO2 using yeast.",
+  "time_ticks": 24000,
+  "requires": ["oak_fermenter"]
+}

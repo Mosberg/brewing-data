@@ -1,0 +1,14 @@
+{
+  "id": "glass_flask",
+  "display_name": "Glass Flask",
+  "capacity_ml": 250,
+  "allowed_alcohol_types": [
+    "whisky",
+    "rum",
+    "gin",
+    "vodka",
+    "brandy",
+    "absinthe"
+  ],
+  "properties": { "sealed": true, "reusable": true, "requires_cork": false }
+}

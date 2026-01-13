@@ -1,0 +1,12 @@
+{
+  "id": "oak_barrel",
+  "display_name": "Oak Barrel",
+  "capacity_ml": 50000,
+  "allowed_alcohol_types": ["whisky", "rum", "brandy", "wine", "mead"],
+  "properties": {
+    "sealed": false,
+    "reusable": true,
+    "aging_supported": true,
+    "oak_only": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "brewing:ingredients/anise", "required": false },
+    { "id": "brewing:ingredients/apple", "required": false },
+    { "id": "brewing:ingredients/barley", "required": false },
+    { "id": "brewing:ingredients/charcoal", "required": false },
+    { "id": "brewing:ingredients/corn", "required": false },
+    { "id": "brewing:ingredients/fennel", "required": false },
+    { "id": "brewing:ingredients/grape", "required": false },
+    { "id": "brewing:ingredients/honey", "required": false },
+    { "id": "brewing:ingredients/hops", "required": false },
+    { "id": "brewing:ingredients/juniper", "required": false },
+    { "id": "brewing:ingredients/molasses", "required": false },
+    { "id": "brewing:ingredients/oak_chips", "required": false },
+    { "id": "brewing:ingredients/rye", "required": false },
+    { "id": "brewing:ingredients/sugarcane", "required": false },
+    { "id": "brewing:ingredients/water", "required": false },
+    { "id": "brewing:ingredients/wheat", "required": false },
+    { "id": "brewing:ingredients/wormwood", "required": false },
+    { "id": "brewing:ingredients/yeast", "required": false }
+  ]
+}

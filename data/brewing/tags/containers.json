@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "brewing:containers/aluminum_can", "required": false },
+    { "id": "brewing:containers/copper_keg", "required": false },
+    { "id": "brewing:containers/glass_bottle", "required": false },
+    { "id": "brewing:containers/glass_flask", "required": false },
+    { "id": "brewing:containers/oak_barrel", "required": false },
+    { "id": "brewing:containers/pressurized_steel_keg", "required": false },
+    { "id": "brewing:containers/wine_bottle", "required": false },
+    { "id": "brewing:containers/wooden_barrel", "required": false }
+  ]
+}

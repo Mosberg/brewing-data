@@ -1,0 +1,7 @@
+{
+  "id": "maceration",
+  "display_name": "Maceration",
+  "summary": "Steep botanicals in spirit for extraction.",
+  "time_ticks": 6000,
+  "requires": ["botanical_basket"]
+}
