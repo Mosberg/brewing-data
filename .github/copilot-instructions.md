@@ -1,4 +1,42 @@
+````instructions
 # Copilot instructions (Brewing / Fabric 1.21.11)
+
+Prefer small, surgical changes that match existing patterns. This repo is currently **resource/data heavy** with minimal Java stubs.
+
+## Snapshot
+- Minecraft 1.21.11, Java 21, Loader 0.18.4, Fabric API 0.141.1+1.21.11, mod id `brewing`.
+- Entrypoints: `dk.mosberg.brewing.Brewing`, `dk.mosberg.brewing.client.BrewingClient`, `dk.mosberg.brewing.datagen.BrewingDataGenerator`.
+
+## Where things live
+- Common code: `src/main/java/**` (main initializer: `src/main/java/dk/mosberg/brewing/Brewing.java`).
+- Client-only code: `src/client/java/**` (keep rendering/model-layer imports here; Loom uses split source sets).
+- Data-driven content (datapack): `src/main/resources/data/brewing/**` (alcohol_types, beverages, containers, equipment, ingredients, methods).
+- Resource-pack assets: `src/main/resources/assets/brewing/**` (item descriptors: `assets/brewing/items/**`; plus models, blockstates, textures, `lang/en_us.json`).
+- Docs + schemas: `docs/` (start at `docs/TECHNICAL_README.md`; some docs describe planned systems not yet implemented in Java).
+
+## Build / run (PowerShell)
+- `./gradlew build`
+- `./gradlew runClient` / `./gradlew runServer`
+- `./gradlew runDatagen` (datagen is configured; entrypoint exists but currently does nothing)
+- Crash triage: `./gradlew runClient --no-daemon`, then check `run/crash-reports/`.
+
+## Mod metadata templating
+- `src/main/resources/fabric.mod.json` is a template; values come from `gradle.properties` via `processResources`.
+- Change mod id/name/version/links/license in `gradle.properties`, not in `fabric.mod.json`.
+
+## Resource/data conventions
+- Keep ids stable and lowercase; match resource paths (assets, models, blockstates).
+- Optional cross-mod tag entries should use objects: `{ "id": "othermod:thing", "required": false }`.
+- Item models should reference `brewing:item/...` textures (avoid `brewing:block/...` in item models to prevent atlas warnings).
+- For animated textures, prefer omitting explicit `.mcmeta` `frames` unless you truly need a subset.
+
+## 1.21.11 registration gotchas (when adding code)
+- Set registry keys on `Item.Settings` / `AbstractBlock.Settings` **before** constructing `Item`/`Block` (avoids “id not set” crashes).
+- For `FlowableFluid`, only the flowing variant should add the `LEVEL` property.
+
+## Reference links
+- Version-pinned API docs live in `.github/remote-index.md`.
+```# Copilot instructions (Brewing / Fabric 1.21.11)
 
 These instructions are optimized for this repo’s current Gradle + Fabric Loom setup and code layout. Prefer precise, minimal changes that match existing patterns.
 
@@ -118,62 +156,63 @@ When adding new content, always update both registration code and resource files
 
 ### Package structure
 
-```
+````
+
 brewing/
 ├─ src/
-│  ├─ main/
-│  │  ├─ java/dk/mosberg/brewing/
-│  │  │  ├─ Brewing.java                     # Main mod initializer (common)
-│  │  │  ├─ api/                             # Public API (stable contracts)
-│  │  │  ├─ impl/                            # Internal implementations (non-API)
-│  │  │  ├─ registry/                        # Registration + registry helpers
-│  │  │  ├─ data/                            # Runtime data models (POJOs, codecs)
-│  │  │  ├─ data/loader/                     # JSON discovery/validation/loading
-│  │  │  ├─ brewing/                         # Brewing domain logic (pipeline, rules)
-│  │  │  ├─ network/                         # Shared networking (packets, channels)
-│  │  │  ├─ util/                            # Utilities (small, dependency-light)
-│  │  │  └─ datagen/                         # Datagen entry + shared providers
-│  │  └─ resources/
-│  │     ├─ fabric.mod.json
-│  │     ├─ brewing.mixins.json
-│  │     ├─ data/brewing/                    # Data pack namespace (server data)
-│  │     │  ├─ alcohol_types/
-│  │     │  ├─ beverages/
-│  │     │  ├─ containers/
-│  │     │  ├─ equipment/
-│  │     │  ├─ ingredients/
-│  │     │  ├─ methods/
-│  │     │  ├─ effects/
-│  │     │  ├─ tags/
-│  │     │  └─ schemas/                      # Ship schemas in-jar for tooling/runtime
-│  │     └─ assets/brewing/                  # Resource pack namespace
-│  │        ├─ lang/
-│  │        ├─ blockstates/
-│  │        ├─ models/block/
-│  │        ├─ models/item/
-│  │        ├─ textures/block/
-│  │        ├─ textures/item/
-│  │        ├─ particles/
-│  │        └─ shaders/
-│  │
-│  ├─ client/
-│  │  ├─ java/dk/mosberg/brewing/client/
-│  │  │  ├─ BrewingClient.java               # Client initializer
-│  │  │  ├─ render/                          # Renderers, layers, render helpers
-│  │  │  ├─ model/                           # Client models (if code-driven)
-│  │  │  ├─ screen/                          # Screens + screen handlers (if client-only)
-│  │  │  └─ network/                         # Client packet handlers
-│  │  └─ resources/                          # Only if truly client-only assets exist
-│  │
-│  ├─ test/
-│  │  └─ java/...                            # Unit tests (optional)
-│  │
-│  └─ main/generated/                         # Datagen output (generated resources)
+│ ├─ main/
+│ │ ├─ java/dk/mosberg/brewing/
+│ │ │ ├─ Brewing.java # Main mod initializer (common)
+│ │ │ ├─ api/ # Public API (stable contracts)
+│ │ │ ├─ impl/ # Internal implementations (non-API)
+│ │ │ ├─ registry/ # Registration + registry helpers
+│ │ │ ├─ data/ # Runtime data models (POJOs, codecs)
+│ │ │ ├─ data/loader/ # JSON discovery/validation/loading
+│ │ │ ├─ brewing/ # Brewing domain logic (pipeline, rules)
+│ │ │ ├─ network/ # Shared networking (packets, channels)
+│ │ │ ├─ util/ # Utilities (small, dependency-light)
+│ │ │ └─ datagen/ # Datagen entry + shared providers
+│ │ └─ resources/
+│ │ ├─ fabric.mod.json
+│ │ ├─ brewing.mixins.json
+│ │ ├─ data/brewing/ # Data pack namespace (server data)
+│ │ │ ├─ alcohol_types/
+│ │ │ ├─ beverages/
+│ │ │ ├─ containers/
+│ │ │ ├─ equipment/
+│ │ │ ├─ ingredients/
+│ │ │ ├─ methods/
+│ │ │ ├─ effects/
+│ │ │ ├─ tags/
+│ │ │ └─ schemas/ # Ship schemas in-jar for tooling/runtime
+│ │ └─ assets/brewing/ # Resource pack namespace
+│ │ ├─ lang/
+│ │ ├─ blockstates/
+│ │ ├─ models/block/
+│ │ ├─ models/item/
+│ │ ├─ textures/block/
+│ │ ├─ textures/item/
+│ │ ├─ particles/
+│ │ └─ shaders/
+│ │
+│ ├─ client/
+│ │ ├─ java/dk/mosberg/brewing/client/
+│ │ │ ├─ BrewingClient.java # Client initializer
+│ │ │ ├─ render/ # Renderers, layers, render helpers
+│ │ │ ├─ model/ # Client models (if code-driven)
+│ │ │ ├─ screen/ # Screens + screen handlers (if client-only)
+│ │ │ └─ network/ # Client packet handlers
+│ │ └─ resources/ # Only if truly client-only assets exist
+│ │
+│ ├─ test/
+│ │ └─ java/... # Unit tests (optional)
+│ │
+│ └─ main/generated/ # Datagen output (generated resources)
 │
 ├─ docs/
-│  ├─ schemas/
-│  ├─ systems/
-│  └─ examples/
+│ ├─ schemas/
+│ ├─ systems/
+│ └─ examples/
 │
 ├─ gradle/wrapper/
 ├─ build.gradle
@@ -181,6 +220,7 @@ brewing/
 ├─ settings.gradle
 ├─ README.md
 └─ LICENSE
+
 ```
 
 ### Documentation Index
@@ -190,14 +230,16 @@ All detailed docs live in the `../docs/` folder:
 [Documentation folder](../docs/)
 
 ```
+
 ../docs/
- ├─ schemas/ - schema documentation
- ├─ systems/ - system documentation
- ├─ examples/ - example JSON files
- ├─ OVERVIEW.md - architecture overview
- ├─ README.md - master index
- └─ TECHNICAL_README.md - this file
-```
+├─ schemas/ - schema documentation
+├─ systems/ - system documentation
+├─ examples/ - example JSON files
+├─ OVERVIEW.md - architecture overview
+├─ README.md - master index
+└─ TECHNICAL_README.md - this file
+
+````
 
 ### JSON data schema (authoritative definitions)
 
@@ -230,7 +272,7 @@ Example beverage schema (`beverages/beer/beer.json`):
   ],
   "tags": ["beer", "fermented", "grain"]
 }
-```
+````
 
 ### Entrypoints
 
