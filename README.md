@@ -237,6 +237,75 @@ Additional schema documentation is in `docs/schemas/`.
 
 ---
 
+## Project Structure
+
+```text
+brewing/
+├─ src/
+│  ├─ main/
+│  │  ├─ java/dk/mosberg/brewing/
+│  │  │  ├─ Brewing.java                     # Main mod initializer (common)
+│  │  │  ├─ api/                             # Public API (stable contracts)
+│  │  │  ├─ impl/                            # Internal implementations (non-API)
+│  │  │  ├─ registry/                        # Registration + registry helpers
+│  │  │  ├─ data/                            # Runtime data models (POJOs, codecs)
+│  │  │  ├─ data/loader/                     # JSON discovery/validation/loading
+│  │  │  ├─ brewing/                         # Brewing domain logic (pipeline, rules)
+│  │  │  ├─ network/                         # Shared networking (packets, channels)
+│  │  │  ├─ util/                            # Utilities (small, dependency-light)
+│  │  │  └─ datagen/                         # Datagen entry + shared providers
+│  │  └─ resources/
+│  │     ├─ fabric.mod.json
+│  │     ├─ brewing.mixins.json
+│  │     ├─ data/brewing/                    # Data pack namespace (server data)
+│  │     │  ├─ alcohol_types/
+│  │     │  ├─ beverages/
+│  │     │  ├─ containers/
+│  │     │  ├─ equipment/
+│  │     │  ├─ ingredients/
+│  │     │  ├─ methods/
+│  │     │  ├─ effects/
+│  │     │  ├─ tags/
+│  │     │  └─ schemas/                      # Ship schemas in-jar for tooling/runtime
+│  │     └─ assets/brewing/                  # Resource pack namespace
+│  │        ├─ lang/
+│  │        ├─ blockstates/
+│  │        ├─ models/block/
+│  │        ├─ models/item/
+│  │        ├─ textures/block/
+│  │        ├─ textures/item/
+│  │        ├─ particles/
+│  │        └─ shaders/
+│  │
+│  ├─ client/
+│  │  ├─ java/dk/mosberg/brewing/client/
+│  │  │  ├─ BrewingClient.java               # Client initializer
+│  │  │  ├─ render/                          # Renderers, layers, render helpers
+│  │  │  ├─ model/                           # Client models (if code-driven)
+│  │  │  ├─ screen/                          # Screens + screen handlers (if client-only)
+│  │  │  └─ network/                         # Client packet handlers
+│  │  └─ resources/                          # Only if truly client-only assets exist
+│  │
+│  ├─ test/
+│  │  └─ java/...                            # Unit tests (optional)
+│  │
+│  └─ main/generated/                         # Datagen output (generated resources)
+│
+├─ docs/
+│  ├─ schemas/
+│  ├─ systems/
+│  └─ examples/
+│
+├─ gradle/wrapper/
+├─ build.gradle
+├─ gradle.properties
+├─ settings.gradle
+├─ README.md
+└─ LICENSE
+```
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome. Suggested expectations:
