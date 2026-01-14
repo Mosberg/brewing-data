@@ -1,7 +1,7 @@
 {
   "type": "brewing:container",
-  "id": "brewing:copper_keg",
-  "container_kind": "keg",
+  "id": "brewing:metal_keg",
+  "container_kind": "metal_keg",
   "stack_size": 1,
   "rarity": "uncommon",
   "category": "containers",
@@ -11,13 +11,18 @@
     "fireproof": false,
     "explosion_resistance": "high"
   },
+  "material": {
+    "metal": {
+      "metal_type": "metal",
+      "supports_metal_variants": true,
+      "allowed_metal_types": ["copper", "iron", "gold", "netherite"],
+      "flavor_bias": "vanilla"
+    }
+  },
   "liquid": {
     "can_contain_liquid": true,
     "capacity_mb": 30000,
-    "accepted_tags": [
-      "brewing:beer",
-      "brewing:carbonated"
-    ],
+    "accepted_tags": ["brewing:beer", "brewing:carbonated"],
     "default_fill_mb": 0,
     "transfer": {
       "fill_rate_mb_per_tick": 50,
@@ -50,26 +55,22 @@
     "freezing_safe": true,
     "heat_safe": true
   },
-  "keg_logic": {
-    "tap_flow_rate_mb_per_second": 100,
-    "pressure_build_rate": 0.05,
-    "natural_carbonation_days": 14,
-    "serving_count_estimate": 15
+  "logic": {
+    "keg_logic": {
+      "tap_flow_rate_mb_per_second": 100,
+      "pressure_build_rate": 0.05,
+      "natural_carbonation_days": 14,
+      "serving_count_estimate": 15
+    }
   },
   "interaction": {
     "use_action": "tap",
     "returns_container": true,
-    "return_item_id": "brewing:copper_keg",
+    "return_item_id": "brewing:metal_keg",
     "consume_on_use": false,
     "consume_on_drink": false,
-    "allow_fill_from": [
-      "brewing:fermenter",
-      "brewing:brewing_stand"
-    ],
-    "allow_pour_to": [
-      "brewing:aluminum_can",
-      "minecraft:glass_bottle"
-    ]
+    "allow_fill_from": ["brewing:fermenter", "brewing:brewing_stand"],
+    "allow_pour_to": ["brewing:metal_can", "minecraft:glass_bottle"]
   },
   "client": {
     "render_mode": "block_entity",
@@ -82,10 +83,10 @@
     "requires_gamerule_true": "doAlchemyBrewing"
   },
   "text": {
-    "lore_key": "item.brewing.copper_keg.lore",
-    "tooltip_key": "item.brewing.copper_keg.tooltip",
-    "flavor_text_key": "item.brewing.copper_keg.flavor",
-    "crafting_instructions_key": "item.brewing.copper_keg.crafting"
+    "lore_key": "item.brewing.metal_keg.lore",
+    "tooltip_key": "item.brewing.metal_keg.tooltip",
+    "flavor_text_key": "item.brewing.metal_keg.flavor",
+    "crafting_instructions_key": "item.brewing.metal_keg.crafting"
   },
   "state_storage": {
     "mode": "both",
@@ -109,8 +110,8 @@
     },
     "placed_block": {
       "enabled": true,
-      "block_id": "brewing:copper_keg_block",
-      "block_entity_id": "brewing:copper_keg",
+      "block_id": "brewing:metal_keg_block",
+      "block_entity_id": "brewing:metal_keg",
       "sync_to_client": true,
       "drops_keep_contents": true
     },

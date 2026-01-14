@@ -7,34 +7,44 @@
   "category": "containers",
   "durability": {
     "breakable": true,
-    "max_damage": 0,
+    "max_damage": 250,
     "fireproof": false,
     "explosion_resistance": "medium"
   },
-  "wood": {
-    "wood_type": "oak",
-    "supports_wood_variants": true,
-    "allowed_wood_types": [
-      "oak",
-      "spruce",
-      "warped"
-    ],
-    "flavor_bias": "vanilla"
+  "material": {
+    "wood": {
+      "wood_type": "oak",
+      "supports_wood_variants": true,
+      "allowed_wood_types": [
+        "oak",
+        "spruce",
+        "birch",
+        "jungle",
+        "acacia",
+        "dark_oak",
+        "mangrove",
+        "cherry",
+        "bamboo",
+        "crimson",
+        "warped"
+      ],
+      "flavor_bias": "vanilla"
+    }
   },
   "liquid": {
     "can_contain_liquid": true,
     "capacity_mb": 50000,
     "accepted_tags": [
-      "brewing:beverages",
+      "brewing:ageable",
       "brewing:beer",
-      "brewing:wine",
+      "brewing:beverages",
+      "brewing:liqueur",
       "brewing:mead",
       "brewing:spirit",
-      "brewing:liqueur",
-      "brewing:ageable"
+      "brewing:wine"
     ],
     "transfer": {
-      "fill_rate_mb_per_tick": 60,
+      "fill_rate_mb_per_tick": 100,
       "pour_rate_mb_per_tick": 50,
       "allow_partial": true
     }
@@ -64,14 +74,16 @@
     "freezing_safe": false,
     "heat_safe": false
   },
-  "barrel_logic": {
-    "supports_aging": true,
-    "aging_multiplier": 1.0,
-    "quality_bonus_max": 2,
-    "spoilage_risk_base": 0.02,
-    "environment_modifiers": {
-      "enable_heat_speedup": true,
-      "enable_cold_quality_bonus": true
+  "logic": {
+    "barrel_logic": {
+      "supports_aging": true,
+      "aging_multiplier": 1.0,
+      "quality_bonus_max": 2,
+      "spoilage_risk_base": 0.02,
+      "environment_modifiers": {
+        "enable_heat_speedup": true,
+        "enable_cold_quality_bonus": true
+      }
     }
   },
   "interaction": {
@@ -81,12 +93,14 @@
     "consume_on_use": false,
     "allow_fill_from": [
       "brewing:aluminum_keg",
-      "brewing:fermenting_barrel",
-      "brewing:distillation_apparatus"
+      "brewing:brewing_stand",
+      "brewing:distillation_apparatus",
+      "brewing:fermenter",
+      "brewing:fermenting_barrel"
     ],
     "allow_pour_to": [
-      "brewing:aluminum_keg",
       "brewing:aluminum_can",
+      "brewing:aluminum_keg",
       "brewing:glass_flask"
     ],
     "consume_on_drink": true

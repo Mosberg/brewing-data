@@ -1,29 +1,24 @@
 {
   "type": "brewing:equipment",
   "schema_version": 1,
-  "id": "brewing:copper_distillery",
-  "name_key": "block.brewing.copper_distillery",
+  "id": "brewing:metal_distillery",
+  "name_key": "block.brewing.metal_distillery",
   "rarity": "rare",
-  "material": "copper",
+  "material": "metal",
   "function": "distillation",
   "category": "equipment",
   "placement": {
     "kind": "block",
-    "block_id": "brewing:copper_distillery",
-    "block_entity_id": "brewing:copper_distillery",
+    "block_id": "brewing:metal_distillery",
+    "block_entity_id": "brewing:metal_distillery",
     "facing": "horizontal",
     "requires_solid_support": true
   },
   "inventory": {
     "capacity": 12,
     "stack_limit_per_slot": 64,
-    "accepts_item_tags": [
-      "brewing:distillable",
-      "brewing:spirit_base"
-    ],
-    "rejects_item_tags": [
-      "brewing:undistillable"
-    ],
+    "accepts_item_tags": ["brewing:distillable", "brewing:spirit_base"],
+    "rejects_item_tags": ["brewing:undistillable"],
     "slot_roles": {
       "0-6": "input",
       "7": "fuel",
@@ -32,12 +27,7 @@
     },
     "quick_move": {
       "enabled": true,
-      "priority": [
-        "fuel",
-        "input",
-        "catalyst",
-        "output"
-      ]
+      "priority": ["fuel", "input", "catalyst", "output"]
     }
   },
   "aging": {
@@ -62,10 +52,7 @@
       },
       "pressure": {
         "affects_output": true,
-        "optimal_range": [
-          0.8,
-          1.2
-        ]
+        "optimal_range": [0.8, 1.2]
       }
     }
   },
@@ -116,22 +103,18 @@
   },
   "crafting": {
     "recipe_type": "minecraft:crafting_shaped",
-    "recipe_id": "brewing:copper_distillery",
+    "recipe_id": "brewing:metal_distillery",
     "ingredients": {
-      "C": "minecraft:copper_block",
+      "C": "minecraft:metal_block",
       "I": "minecraft:iron_ingot",
       "G": "minecraft:glass_pane",
       "F": "minecraft:furnace",
       "B": "minecraft:bucket"
     },
-    "pattern": [
-      "GCG",
-      "CBC",
-      "IFI"
-    ]
+    "pattern": ["GCG", "CBC", "IFI"]
   },
   "meta": {
-    "display_name": "Copper Distillery",
+    "display_name": "metal Distillery",
     "notes": "Advanced equipment for distilling spirits with precision temperature control"
   }
 }

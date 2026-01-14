@@ -1,13 +1,13 @@
 {
   "type": "brewing:container",
-  "id": "brewing:pressurized_steel_keg",
+  "id": "brewing:pressurized_metal_keg",
   "container_kind": "keg",
   "stack_size": 1,
   "rarity": "rare",
   "category": "containers",
   "meta": {
-    "display_name": "Pressurized Steel Keg",
-    "icon": "brewing:pressurized_steel_keg_icon",
+    "display_name": "Pressurized Metal Keg",
+    "icon": "brewing:pressurized_metal_keg_icon",
     "notes": "Advanced keg with pressure control and temperature regulation"
   },
   "durability": {
@@ -15,6 +15,17 @@
     "max_damage": 800,
     "fireproof": true,
     "explosion_resistance": "high"
+  },
+  "metal": {
+    "metal_type": "metal",
+    "supports_metal_variants": true,
+    "allowed_metal_types": [
+      "copper",
+      "iron",
+      "gold",
+      "netherite"
+    ],
+    "flavor_bias": "vanilla"
   },
   "liquid": {
     "can_contain_liquid": true,
@@ -82,7 +93,7 @@
   "interaction": {
     "use_action": "tap",
     "returns_container": true,
-    "return_item_id": "brewing:pressurized_steel_keg",
+    "return_item_id": "brewing:pressurized_metal_keg",
     "consume_on_use": false,
     "consume_on_drink": false,
     "allow_fill_from": [
@@ -109,10 +120,10 @@
     "requires_gamerule_true": "doAlchemyBrewing"
   },
   "text": {
-    "lore_key": "item.brewing.pressurized_steel_keg.lore",
-    "tooltip_key": "item.brewing.pressurized_steel_keg.tooltip",
-    "flavor_text_key": "item.brewing.pressurized_steel_keg.flavor",
-    "crafting_instructions_key": "item.brewing.pressurized_steel_keg.crafting"
+    "lore_key": "item.brewing.pressurized_metal_keg.lore",
+    "tooltip_key": "item.brewing.pressurized_metal_keg.tooltip",
+    "flavor_text_key": "item.brewing.pressurized_metal_keg.flavor",
+    "crafting_instructions_key": "item.brewing.pressurized_metal_keg.crafting"
   },
   "state_storage": {
     "mode": "both",
@@ -143,8 +154,8 @@
     },
     "placed_block": {
       "enabled": true,
-      "block_id": "brewing:pressurized_steel_keg_block",
-      "block_entity_id": "brewing:pressurized_steel_keg",
+      "block_id": "brewing:pressurized_metal_keg_block",
+      "block_entity_id": "brewing:pressurized_metal_keg",
       "sync_to_client": true,
       "drops_keep_contents": true
     },

@@ -1,7 +1,7 @@
 {
   "type": "brewing:container",
   "id": "brewing:glass_bottle",
-  "container_kind": "flask",
+  "container_kind": "glass_bottle",
   "stack_size": 16,
   "rarity": "common",
   "category": "containers",
@@ -11,12 +11,36 @@
     "fireproof": false,
     "explosion_resistance": "low"
   },
+  "material": {
+    "glass": {
+      "glass_type": "glass",
+      "supports_glass_variants": true,
+      "allowed_glass_types": [
+        "glass",
+        "white_stained_glass",
+        "orange_stained_glass",
+        "magenta_stained_glass",
+        "light_blue_stained_glass",
+        "yellow_stained_glass",
+        "lime_stained_glass",
+        "pink_stained_glass",
+        "gray_stained_glass",
+        "light_gray_stained_glass",
+        "cyan_stained_glass",
+        "purple_stained_glass",
+        "blue_stained_glass",
+        "brown_stained_glass",
+        "green_stained_glass",
+        "red_stained_glass",
+        "black_stained_glass"
+      ],
+      "flavor_bias": "vanilla"
+    }
+  },
   "liquid": {
     "can_contain_liquid": true,
-    "capacity_mb": 500,
-    "accepted_tags": [
-      "brewing:all_beverages"
-    ],
+    "capacity_mb": 750,
+    "accepted_tags": ["brewing:all_beverages"],
     "default_fill_mb": 0,
     "transfer": {
       "fill_rate_mb_per_tick": 50,
@@ -35,10 +59,10 @@
   "pressure": {
     "supports_pressure": false,
     "carbonation_style": "none",
-    "max_pressure": 0,
+    "max_pressure": 0.0,
     "burst": {
       "enabled": false,
-      "pressure_threshold": 0,
+      "pressure_threshold": 0.0,
       "drop_contents_on_burst": false,
       "burst_sound": "minecraft:block.glass.break"
     }
@@ -49,6 +73,7 @@
     "freezing_safe": false,
     "heat_safe": false
   },
+  "logic": {},
   "interaction": {
     "use_action": "drink",
     "returns_container": true,
@@ -79,9 +104,9 @@
       "payload": {
         "content_id": "",
         "amount_mb": 0,
-        "quality": 0,
+        "quality": 0.0,
         "temperature": "ambient",
-        "pressure": 0,
+        "pressure": 0.0,
         "sealed": true,
         "created_time": 0
       }

@@ -11,6 +11,32 @@
     "fireproof": false,
     "explosion_resistance": "low"
   },
+  "material": {
+    "glass": {
+      "glass_type": "glass",
+      "supports_glass_variants": true,
+      "allowed_glass_types": [
+        "glass",
+        "white_stained_glass",
+        "orange_stained_glass",
+        "magenta_stained_glass",
+        "light_blue_stained_glass",
+        "yellow_stained_glass",
+        "lime_stained_glass",
+        "pink_stained_glass",
+        "gray_stained_glass",
+        "light_gray_stained_glass",
+        "cyan_stained_glass",
+        "purple_stained_glass",
+        "blue_stained_glass",
+        "brown_stained_glass",
+        "green_stained_glass",
+        "red_stained_glass",
+        "black_stained_glass"
+      ],
+      "flavor_bias": "vanilla"
+    }
+  },
   "liquid": {
     "can_contain_liquid": true,
     "capacity_mb": 250,
@@ -52,6 +78,7 @@
     "freezing_safe": true,
     "heat_safe": false
   },
+  "logic": {},
   "interaction": {
     "use_action": "drink",
     "returns_container": true,
@@ -61,10 +88,7 @@
       "brewing:aluminum_keg",
       "brewing:distillation_apparatus"
     ],
-    "allow_pour_to": [
-      "brewing:aluminum_keg",
-      "brewing:wooden_barrel"
-    ],
+    "allow_pour_to": ["brewing:aluminum_keg", "brewing:wooden_barrel"],
     "consume_on_use": false
   },
   "client": {
@@ -123,5 +147,11 @@
       "on_break": "copy_block_entity_to_item_nbt",
       "merge_strategy": "replace"
     }
+  },
+  "config": {
+    "enabled": true,
+    "capacity_multiplier": 1.0,
+    "transfer_rate_multiplier": 1.0,
+    "disable_pressure_burst": false
   }
 }

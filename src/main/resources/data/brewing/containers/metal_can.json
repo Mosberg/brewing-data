@@ -1,7 +1,7 @@
 {
   "type": "brewing:container",
-  "id": "brewing:aluminum_can",
-  "container_kind": "can",
+  "id": "brewing:metal_can",
+  "container_kind": "metal_can",
   "stack_size": 64,
   "rarity": "common",
   "category": "containers",
@@ -11,14 +11,18 @@
     "fireproof": false,
     "explosion_resistance": "low"
   },
+  "material": {
+    "metal": {
+      "metal_type": "metal",
+      "supports_metal_variants": true,
+      "allowed_metal_types": ["copper", "iron", "gold", "netherite"],
+      "flavor_bias": "vanilla"
+    }
+  },
   "liquid": {
     "can_contain_liquid": true,
     "capacity_mb": 330,
-    "accepted_tags": [
-      "brewing:beverages",
-      "brewing:beer",
-      "brewing:cider"
-    ],
+    "accepted_tags": ["brewing:beverages", "brewing:beer", "brewing:cider"],
     "default_fill_mb": 250,
     "transfer": {
       "fill_rate_mb_per_tick": 20,
@@ -51,19 +55,14 @@
     "freezing_safe": true,
     "heat_safe": false
   },
+  "logic": {},
   "interaction": {
     "use_action": "drink",
     "returns_container": true,
-    "return_item_id": "brewing:aluminum_can",
+    "return_item_id": "brewing:metal_can",
     "consume_on_drink": false,
-    "allow_fill_from": [
-      "brewing:aluminum_keg",
-      "brewing:fermenting_barrel"
-    ],
-    "allow_pour_to": [
-      "brewing:aluminum_keg",
-      "brewing:fermenting_barrel"
-    ],
+    "allow_fill_from": ["brewing:metal_keg", "brewing:fermenting_barrel"],
+    "allow_pour_to": ["brewing:metal_keg", "brewing:fermenting_barrel"],
     "consume_on_use": false
   },
   "client": {
@@ -77,10 +76,10 @@
     "requires_gamerule_true": "enableAlcoholEffects"
   },
   "text": {
-    "lore_key": "item.brewing.aluminum_can.desc",
-    "tooltip_key": "item.brewing.aluminum_can.tooltip",
-    "flavor_text_key": "item.brewing.aluminum_can.flavor_text",
-    "crafting_instructions_key": "item.brewing.aluminum_can.crafting_instructions"
+    "lore_key": "item.brewing.metal_can.desc",
+    "tooltip_key": "item.brewing.metal_can.tooltip",
+    "flavor_text_key": "item.brewing.metal_can.flavor_text",
+    "crafting_instructions_key": "item.brewing.metal_can.crafting_instructions"
   },
   "state_storage": {
     "mode": "both",
@@ -112,7 +111,7 @@
     },
     "placed_block": {
       "enabled": true,
-      "block_id": "brewing:placed_aluminum_can",
+      "block_id": "brewing:placed_metal_can",
       "block_entity_id": "brewing:placed_container",
       "sync_to_client": true,
       "drops_keep_contents": true
