@@ -1,7 +1,7 @@
 {
   "type": "brewing:container",
   "id": "brewing:metal_keg",
-  "container_kind": "metal_keg",
+  "container_kind": "keg",
   "stack_size": 1,
   "rarity": "uncommon",
   "category": "containers",

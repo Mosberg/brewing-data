@@ -17,12 +17,11 @@
       "type": "string",
       "pattern": "^[a-z0-9_.-]+:[a-z0-9_/.-]+$"
     },
-    "Rarity": {
-      "enum": ["common", "uncommon", "rare", "epic"]
-    },
+    "Rarity": { "enum": ["common", "uncommon", "rare", "epic"] },
     "TemperaturePreset": {
       "enum": ["ambient", "cool", "cold", "cellar", "hot"]
     },
+
     "EventList": {
       "type": "array",
       "items": { "$ref": "#/$defs/EventAction" },

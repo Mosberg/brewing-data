@@ -3,6 +3,10 @@
   "schema_version": 1,
   "id": "brewing:metal_distillery",
   "name_key": "block.brewing.metal_distillery",
+  "text": {
+    "name_key": "block.brewing.metal_distillery",
+    "tooltip_key": "block.brewing.metal_distillery.tooltip"
+  },
   "rarity": "rare",
   "material": "metal",
   "function": "distillation",

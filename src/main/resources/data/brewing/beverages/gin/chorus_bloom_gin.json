@@ -12,9 +12,7 @@
   "brewing": {
     "brew_time_seconds": 40,
     "brew_time_ticks": 800,
-    "station_tags": [
-      "brewing:distillation_stations"
-    ],
+    "station_tags": ["brewing:distillation_stations"],
     "difficulty": 2,
     "batch_size_servings": 4,
     "byproducts": [
@@ -59,9 +57,7 @@
     "supported": true,
     "min_days": 3,
     "max_days": 30,
-    "preferred_container_tags": [
-      "brewing:barrels"
-    ],
+    "preferred_container_tags": ["brewing:barrels"],
     "quality_bonus_per_day": 0.01,
     "risk_per_day_open": 0.025
   },
@@ -134,10 +130,7 @@
   ],
   "loot": {
     "weight": 3,
-    "tables": [
-      "brewing:end_city",
-      "brewing:festival"
-    ]
+    "tables": ["brewing:end_city", "brewing:festival"]
   },
   "gates": {
     "requires_feature_flag": "brewing:liquids",
@@ -146,7 +139,8 @@
   "client": {
     "use_liquid_tint": true,
     "show_strength_line": true,
-    "show_quality_line": true
+    "show_quality_line": true,
+    "show_spoilage_hint": true
   },
   "name_key": "item.brewing.chorus_bloom_gin",
   "lore_key": "item.brewing.chorus_bloom_gin.desc",

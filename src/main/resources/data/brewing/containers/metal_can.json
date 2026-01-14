@@ -1,7 +1,7 @@
 {
   "type": "brewing:container",
   "id": "brewing:metal_can",
-  "container_kind": "metal_can",
+  "container_kind": "can",
   "stack_size": 64,
   "rarity": "common",
   "category": "containers",

@@ -1,7 +1,7 @@
 {
   "type": "brewing:container",
   "id": "brewing:glass_bottle",
-  "container_kind": "glass_bottle",
+  "container_kind": "bottle",
   "stack_size": 16,
   "rarity": "common",
   "category": "containers",

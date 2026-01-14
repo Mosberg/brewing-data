@@ -3,6 +3,10 @@
   "schema_version": 2,
   "id": "brewing:aging_barrel",
   "name_key": "block.brewing.aging_barrel",
+  "text": {
+    "name_key": "block.brewing.aging_barrel",
+    "tooltip_key": "block.brewing.aging_barrel.tooltip"
+  },
   "rarity": "uncommon",
   "material": "wood",
   "function": "aging",

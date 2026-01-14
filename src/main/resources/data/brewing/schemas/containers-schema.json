@@ -27,7 +27,7 @@
       "const": "brewing:container"
     },
     "id": {
-      "$ref": "#/$defs/Identifier"
+      "$ref": "common-schema.json#/$defs/Identifier"
     },
     "container_kind": {
       "$ref": "#/$defs/ContainerKind"
@@ -38,7 +38,7 @@
       "maximum": 64
     },
     "rarity": {
-      "$ref": "#/$defs/Rarity"
+      "$ref": "common-schema.json#/$defs/Rarity"
     },
     "category": {
       "type": "string",
@@ -117,7 +117,7 @@
         "accepted_tags": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/TagId"
+            "$ref": "common-schema.json#/$defs/TagId"
           },
           "uniqueItems": true
         },
@@ -128,7 +128,7 @@
         "denied_tags": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/TagId"
+            "$ref": "common-schema.json#/$defs/TagId"
           },
           "uniqueItems": true
         },
@@ -213,7 +213,7 @@
           "minimum": 0
         },
         "requires_tool": {
-          "$ref": "#/$defs/Identifier"
+          "$ref": "common-schema.json#/$defs/Identifier"
         },
         "tool_damage": {
           "type": "integer",
@@ -289,7 +289,7 @@
           "type": "number"
         },
         "preferred_serving": {
-          "$ref": "#/$defs/TemperaturePreset"
+          "$ref": "common-schema.json#/$defs/TemperaturePreset"
         },
         "freezing_safe": {
           "type": "boolean"
@@ -319,7 +319,11 @@
     "interaction": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["use_action", "returns_container", "return_item_id"],
+      "required": [
+        "use_action",
+        "returns_container",
+        "return_item_id"
+      ],
       "properties": {
         "use_action": {
           "$ref": "#/$defs/UseAction"
@@ -328,7 +332,7 @@
           "type": "boolean"
         },
         "return_item_id": {
-          "$ref": "#/$defs/Identifier"
+          "$ref": "common-schema.json#/$defs/Identifier"
         },
         "consume_on_use": {
           "type": "boolean"
@@ -339,14 +343,14 @@
         "allow_fill_from": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Identifier"
+            "$ref": "common-schema.json#/$defs/Identifier"
           },
           "uniqueItems": true
         },
         "allow_pour_to": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Identifier"
+            "$ref": "common-schema.json#/$defs/Identifier"
           },
           "uniqueItems": true
         },
@@ -427,7 +431,10 @@
     "gates": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["requires_feature_flag", "requires_gamerule_true"],
+      "required": [
+        "requires_feature_flag",
+        "requires_gamerule_true"
+      ],
       "properties": {
         "requires_feature_flag": {
           "type": "string"
@@ -481,7 +488,11 @@
       ],
       "properties": {
         "mode": {
-          "enum": ["item", "block", "both"]
+          "enum": [
+            "item",
+            "block",
+            "both"
+          ]
         },
         "schema_version": {
           "type": "integer",
@@ -490,7 +501,9 @@
         "defaults": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["payload"],
+          "required": [
+            "payload"
+          ],
           "properties": {
             "payload": {
               "$ref": "#/$defs/Payload"
@@ -500,7 +513,11 @@
         "item_nbt": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["enabled", "nbt_root", "payload_key"],
+          "required": [
+            "enabled",
+            "nbt_root",
+            "payload_key"
+          ],
           "properties": {
             "enabled": {
               "type": "boolean"
@@ -535,7 +552,7 @@
               "type": "boolean"
             },
             "block_id": {
-              "$ref": "#/$defs/IdentifierOrVanilla"
+              "$ref": "common-schema.json#/$defs/IdentifierOrVanilla"
             },
             "block_entity_id": {
               "type": "string"
@@ -551,7 +568,11 @@
         "conversion": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["on_place", "on_break", "merge_strategy"],
+          "required": [
+            "on_place",
+            "on_break",
+            "merge_strategy"
+          ],
           "properties": {
             "on_place": {
               "type": "string"
@@ -560,7 +581,10 @@
               "type": "string"
             },
             "merge_strategy": {
-              "enum": ["replace", "merge"]
+              "enum": [
+                "replace",
+                "merge"
+              ]
             }
           }
         }
@@ -608,59 +632,65 @@
       "additionalProperties": false,
       "properties": {
         "on_fill": {
-          "$ref": "#/$defs/EventList"
+          "$ref": "common-schema.json#/$defs/EventList"
         },
         "on_pour": {
-          "$ref": "#/$defs/EventList"
+          "$ref": "common-schema.json#/$defs/EventList"
         },
         "on_open": {
-          "$ref": "#/$defs/EventList"
+          "$ref": "common-schema.json#/$defs/EventList"
         },
         "on_close": {
-          "$ref": "#/$defs/EventList"
+          "$ref": "common-schema.json#/$defs/EventList"
         },
         "on_tick": {
-          "$ref": "#/$defs/EventList"
+          "$ref": "common-schema.json#/$defs/EventList"
         },
         "on_place": {
-          "$ref": "#/$defs/EventList"
+          "$ref": "common-schema.json#/$defs/EventList"
         },
         "on_break": {
-          "$ref": "#/$defs/EventList"
+          "$ref": "common-schema.json#/$defs/EventList"
         }
       }
     }
   },
   "$defs": {
-    "Identifier": {
-      "type": "string",
-      "pattern": "^[a-z0-9_.-]+:[a-z0-9_/.-]+$"
-    },
-    "IdentifierOrVanilla": {
-      "type": "string",
-      "pattern": "^([a-z0-9_.-]+:[a-z0-9_/.-]+|minecraft:[a-z0-9_/.-]+)$"
-    },
-    "TagId": {
-      "type": "string",
-      "pattern": "^[a-z0-9_.-]+:[a-z0-9_/.-]+$"
-    },
     "ContainerKind": {
-      "enum": ["bottle", "flask", "can", "keg", "pressurized_keg", "barrel"]
-    },
-    "Rarity": {
-      "enum": ["common", "uncommon", "rare", "epic"]
+      "enum": [
+        "bottle",
+        "flask",
+        "can",
+        "keg",
+        "pressurized_keg",
+        "barrel"
+      ]
     },
     "ResistanceTier": {
-      "enum": ["low", "medium", "high"]
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
     },
     "CarbonationStyle": {
-      "enum": ["none", "low", "medium", "natural", "forced_carbonation"]
-    },
-    "TemperaturePreset": {
-      "enum": ["ambient", "cool", "cold", "cellar", "hot"]
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "natural",
+        "forced_carbonation"
+      ]
     },
     "UseAction": {
-      "enum": ["drink", "tap", "open_ui", "place_or_open", "place", "none"]
+      "enum": [
+        "drink",
+        "tap",
+        "open_ui",
+        "place_or_open",
+        "place",
+        "none"
+      ]
     },
     "RenderMode": {
       "enum": [
@@ -686,13 +716,19 @@
       },
       "oneOf": [
         {
-          "required": ["glass"]
+          "required": [
+            "glass"
+          ]
         },
         {
-          "required": ["wood"]
+          "required": [
+            "wood"
+          ]
         },
         {
-          "required": ["metal"]
+          "required": [
+            "metal"
+          ]
         }
       ]
     },
@@ -820,7 +856,7 @@
           "type": "number"
         },
         "temperature": {
-          "$ref": "#/$defs/TemperaturePreset"
+          "$ref": "common-schema.json#/$defs/TemperaturePreset"
         },
         "pressure": {
           "type": "number",
@@ -838,34 +874,23 @@
           "additionalProperties": true
         }
       }
+    }
+  },
+  "patternProperties": {
+    "^x-": {
+      "type": [
+        "object",
+        "array",
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "null"
+      ]
     },
-    "EventList": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/EventAction"
-      },
-      "default": []
-    },
-    "EventAction": {
+    "^_debug$": {
       "type": "object",
-      "additionalProperties": true,
-      "required": ["type"],
-      "properties": {
-        "type": {
-          "type": "string",
-          "minLength": 1
-        },
-        "conditions": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        },
-        "params": {
-          "type": "object",
-          "additionalProperties": true
-        }
-      }
+      "additionalProperties": true
     }
   }
 }

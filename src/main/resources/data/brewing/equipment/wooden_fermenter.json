@@ -3,6 +3,10 @@
   "schema_version": 1,
   "id": "brewing:wooden_fermenter",
   "name_key": "block.brewing.wooden_fermenter",
+  "text": {
+    "name_key": "block.brewing.wooden_fermenter",
+    "tooltip_key": "block.brewing.wooden_fermenter.tooltip"
+  },
   "rarity": "uncommon",
   "material": "wood",
   "function": "fermentation",

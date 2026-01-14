@@ -12,9 +12,7 @@
   "brewing": {
     "brew_time_seconds": 50,
     "brew_time_ticks": 1000,
-    "station_tags": [
-      "brewing:distillation_stations"
-    ],
+    "station_tags": ["brewing:distillation_stations"],
     "difficulty": 3,
     "batch_size_servings": 4,
     "byproducts": [
@@ -59,9 +57,7 @@
     "supported": true,
     "min_days": 7,
     "max_days": 60,
-    "preferred_container_tags": [
-      "brewing:barrels"
-    ],
+    "preferred_container_tags": ["brewing:barrels"],
     "quality_bonus_per_day": 0.014,
     "risk_per_day_open": 0.03
   },
@@ -134,10 +130,7 @@
   ],
   "loot": {
     "weight": 2,
-    "tables": [
-      "brewing:desert_pyramid",
-      "brewing:bossdrop"
-    ]
+    "tables": ["brewing:desert_pyramid", "brewing:bossdrop"]
   },
   "gates": {
     "requires_feature_flag": "brewing:liquids",
@@ -146,7 +139,8 @@
   "client": {
     "use_liquid_tint": true,
     "show_strength_line": true,
-    "show_quality_line": true
+    "show_quality_line": true,
+    "show_spoilage_hint": true
   },
   "name_key": "item.brewing.scarabgold_brandy",
   "lore_key": "item.brewing.scarabgold_brandy.desc",

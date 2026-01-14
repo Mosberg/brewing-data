@@ -4,7 +4,6 @@
   "title": "Brewing Equipment Definition",
   "type": "object",
   "additionalProperties": false,
-
   "required": [
     "type",
     "schema_version",
@@ -21,63 +20,95 @@
     "gates",
     "text"
   ],
-
   "properties": {
-    "type": { "const": "brewing:equipment" },
-    "schema_version": { "type": "integer", "minimum": 1 },
-
-    "id": { "$ref": "#/$defs/Identifier" },
-
-    "name_key": { "type": "string", "minLength": 1 },
-    "rarity": { "$ref": "#/$defs/Rarity" },
-    "material": { "$ref": "#/$defs/MaterialKind" },
-    "function": { "$ref": "#/$defs/EquipmentFunction" },
-    "category": { "type": "string", "minLength": 1 },
-
-    "meta": { "$ref": "#/$defs/Meta" },
-
-    "placement": { "$ref": "#/$defs/Placement" },
-    "inventory": { "$ref": "#/$defs/Inventory" },
-
-    "aging": { "$ref": "#/$defs/Processing" },
-
+    "type": {
+      "const": "brewing:equipment"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "$ref": "common-schema.json#/$defs/Identifier"
+    },
+    "name_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rarity": {
+      "$ref": "common-schema.json#/$defs/Rarity"
+    },
+    "material": {
+      "$ref": "#/$defs/MaterialKind"
+    },
+    "function": {
+      "$ref": "#/$defs/EquipmentFunction"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "meta": {
+      "$ref": "#/$defs/Meta"
+    },
+    "placement": {
+      "$ref": "#/$defs/Placement"
+    },
+    "inventory": {
+      "$ref": "#/$defs/Inventory"
+    },
+    "aging": {
+      "$ref": "#/$defs/Processing"
+    },
     "processing": {
       "type": "object",
       "description": "Optional modern alias for 'aging' (future migration).",
       "additionalProperties": true
     },
-
-    "interaction": { "$ref": "#/$defs/Interaction" },
-    "automation": { "$ref": "#/$defs/Automation" },
-
-    "upgrades": { "$ref": "#/$defs/Upgrades" },
-
-    "wood_variants": { "$ref": "#/$defs/WoodVariants" },
-    "metal_variants": { "$ref": "#/$defs/MetalVariants" },
-
-    "crafting": { "$ref": "#/$defs/Crafting" },
-
-    "client": { "$ref": "#/$defs/Client" },
-    "gates": { "$ref": "#/$defs/Gates" },
-    "text": { "$ref": "#/$defs/Text" },
-
-    "config": { "$ref": "#/$defs/Config" },
-    "events": { "$ref": "#/$defs/Events" }
+    "interaction": {
+      "$ref": "#/$defs/Interaction"
+    },
+    "automation": {
+      "$ref": "#/$defs/Automation"
+    },
+    "upgrades": {
+      "$ref": "#/$defs/Upgrades"
+    },
+    "wood_variants": {
+      "$ref": "#/$defs/WoodVariants"
+    },
+    "metal_variants": {
+      "$ref": "#/$defs/MetalVariants"
+    },
+    "crafting": {
+      "$ref": "#/$defs/Crafting"
+    },
+    "client": {
+      "$ref": "#/$defs/Client"
+    },
+    "gates": {
+      "$ref": "#/$defs/Gates"
+    },
+    "text": {
+      "$ref": "#/$defs/Text"
+    },
+    "config": {
+      "$ref": "#/$defs/Config"
+    },
+    "events": {
+      "$ref": "#/$defs/Events"
+    }
   },
-
   "$defs": {
-    "Identifier": {
-      "type": "string",
-      "pattern": "^[a-z0-9_.-]+:[a-z0-9_/.-]+$"
+    "MaterialKind": {
+      "enum": [
+        "wood",
+        "metal",
+        "glass",
+        "stone",
+        "cloth"
+      ]
     },
-    "TagId": {
-      "type": "string",
-      "pattern": "^[a-z0-9_.-]+:[a-z0-9_/.-]+$"
-    },
-
-    "Rarity": { "enum": ["common", "uncommon", "rare", "epic"] },
-    "MaterialKind": { "enum": ["wood", "metal", "glass", "stone", "cloth"] },
-
     "EquipmentFunction": {
       "enum": [
         "mashing",
@@ -89,24 +120,36 @@
         "aging"
       ]
     },
-
-    "FacingRule": { "enum": ["none", "horizontal", "vertical", "all"] },
-
+    "FacingRule": {
+      "enum": [
+        "none",
+        "horizontal",
+        "vertical",
+        "all"
+      ]
+    },
     "Meta": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "display_name": { "type": "string" },
-        "icon": { "type": "string" },
-        "notes": { "type": "string" },
+        "display_name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
         "tags": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         }
       }
     },
-
     "Placement": {
       "type": "object",
       "additionalProperties": false,
@@ -118,19 +161,34 @@
         "requires_solid_support"
       ],
       "properties": {
-        "kind": { "enum": ["block"] },
-        "block_id": { "$ref": "#/$defs/Identifier" },
-        "block_entity_id": { "type": "string", "minLength": 1 },
-        "facing": { "$ref": "#/$defs/FacingRule" },
-        "requires_solid_support": { "type": "boolean" },
-
+        "kind": {
+          "enum": [
+            "block"
+          ]
+        },
+        "block_id": {
+          "$ref": "common-schema.json#/$defs/Identifier"
+        },
+        "block_entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "facing": {
+          "$ref": "#/$defs/FacingRule"
+        },
+        "requires_solid_support": {
+          "type": "boolean"
+        },
         "valid_dimensions": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         },
-        "requires_biome_tag": { "type": "string" },
-
+        "requires_biome_tag": {
+          "type": "string"
+        },
         "requires_light_level_at_most": {
           "type": "integer",
           "minimum": 0,
@@ -141,7 +199,6 @@
           "minimum": 0,
           "maximum": 15
         },
-
         "placement_rules": {
           "type": "object",
           "description": "Extension point: arbitrary placement constraints (structures, adjacency rules, etc.).",
@@ -149,7 +206,6 @@
         }
       }
     },
-
     "SlotRole": {
       "enum": [
         "input",
@@ -163,7 +219,6 @@
         "upgrade"
       ]
     },
-
     "Inventory": {
       "type": "object",
       "additionalProperties": false,
@@ -176,56 +231,73 @@
         "quick_move"
       ],
       "properties": {
-        "capacity": { "type": "integer", "minimum": 0 },
+        "capacity": {
+          "type": "integer",
+          "minimum": 0
+        },
         "stack_limit_per_slot": {
           "type": "integer",
           "minimum": 1,
           "maximum": 64
         },
-
         "accepts_item_tags": {
           "type": "array",
-          "items": { "$ref": "#/$defs/TagId" },
+          "items": {
+            "$ref": "common-schema.json#/$defs/TagId"
+          },
           "uniqueItems": true
         },
         "rejects_item_tags": {
           "type": "array",
-          "items": { "$ref": "#/$defs/TagId" },
+          "items": {
+            "$ref": "common-schema.json#/$defs/TagId"
+          },
           "uniqueItems": true
         },
-
         "accepts_items": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Identifier" },
+          "items": {
+            "$ref": "common-schema.json#/$defs/Identifier"
+          },
           "uniqueItems": true
         },
         "rejects_items": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Identifier" },
+          "items": {
+            "$ref": "common-schema.json#/$defs/Identifier"
+          },
           "uniqueItems": true
         },
-
         "slot_roles": {
           "type": "object",
           "description": "Key is a slot index or range like '0-3'. Value is a role.",
-          "additionalProperties": { "$ref": "#/$defs/SlotRole" },
-          "propertyNames": { "pattern": "^[0-9]+(-[0-9]+)?$" }
+          "additionalProperties": {
+            "$ref": "#/$defs/SlotRole"
+          },
+          "propertyNames": {
+            "pattern": "^[0-9]+(-[0-9]+)?$"
+          }
         },
-
         "quick_move": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["enabled", "priority"],
+          "required": [
+            "enabled",
+            "priority"
+          ],
           "properties": {
-            "enabled": { "type": "boolean" },
+            "enabled": {
+              "type": "boolean"
+            },
             "priority": {
               "type": "array",
-              "items": { "$ref": "#/$defs/SlotRole" },
+              "items": {
+                "$ref": "#/$defs/SlotRole"
+              },
               "uniqueItems": true
             }
           }
         },
-
         "slot_filters": {
           "type": "object",
           "description": "Optional per-slot filtering rules (more precise than accepts/rejects).",
@@ -235,22 +307,30 @@
             "properties": {
               "accepts_item_tags": {
                 "type": "array",
-                "items": { "$ref": "#/$defs/TagId" },
+                "items": {
+                  "$ref": "common-schema.json#/$defs/TagId"
+                },
                 "uniqueItems": true
               },
               "rejects_item_tags": {
                 "type": "array",
-                "items": { "$ref": "#/$defs/TagId" },
+                "items": {
+                  "$ref": "common-schema.json#/$defs/TagId"
+                },
                 "uniqueItems": true
               },
               "accepts_items": {
                 "type": "array",
-                "items": { "$ref": "#/$defs/Identifier" },
+                "items": {
+                  "$ref": "common-schema.json#/$defs/Identifier"
+                },
                 "uniqueItems": true
               },
               "rejects_items": {
                 "type": "array",
-                "items": { "$ref": "#/$defs/Identifier" },
+                "items": {
+                  "$ref": "common-schema.json#/$defs/Identifier"
+                },
                 "uniqueItems": true
               }
             }
@@ -258,7 +338,6 @@
         }
       }
     },
-
     "Processing": {
       "type": "object",
       "additionalProperties": false,
@@ -269,56 +348,96 @@
         "progress_persists"
       ],
       "properties": {
-        "recipe_source": { "enum": ["data", "datapack"] },
-        "recipe_type": { "$ref": "#/$defs/Identifier" },
-
-        "aging_multiplier": { "type": "number", "minimum": 0 },
-        "progress_persists": { "type": "boolean" },
-
+        "recipe_source": {
+          "enum": [
+            "data",
+            "datapack"
+          ]
+        },
+        "recipe_type": {
+          "$ref": "common-schema.json#/$defs/Identifier"
+        },
+        "aging_multiplier": {
+          "type": "number",
+          "minimum": 0
+        },
+        "progress_persists": {
+          "type": "boolean"
+        },
         "ticks_per_cycle": {
           "type": "integer",
           "minimum": 1,
           "description": "Optional fixed processing tick rate (lets you decouple from world tick speed or apply throttling)."
         },
-
         "batch_size": {
           "type": "integer",
           "minimum": 1,
           "description": "Optional: how many recipe executions can run per cycle when inputs allow."
         },
-
         "quality": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "enabled": { "type": "boolean" },
-            "base_quality": { "type": "number" },
-            "base_quality_on_insert": { "type": "number" },
-            "max_quality": { "type": "number" },
-            "min_quality": { "type": "number" },
-            "quality_variance": { "type": "number", "minimum": 0 },
-            "quality_bonus_on_complete": { "type": "number" },
-            "skill_influence": { "type": "number", "minimum": 0, "maximum": 1 }
+            "enabled": {
+              "type": "boolean"
+            },
+            "base_quality": {
+              "type": "number"
+            },
+            "base_quality_on_insert": {
+              "type": "number"
+            },
+            "max_quality": {
+              "type": "number"
+            },
+            "min_quality": {
+              "type": "number"
+            },
+            "quality_variance": {
+              "type": "number",
+              "minimum": 0
+            },
+            "quality_bonus_on_complete": {
+              "type": "number"
+            },
+            "skill_influence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
           }
         },
-
         "spoilage": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "enabled": { "type": "boolean" },
-            "base_risk_per_day": { "type": "number", "minimum": 0 },
-            "base_spoilage_rate": { "type": "number", "minimum": 0 },
-            "opened_multiplier": { "type": "number", "minimum": 0 },
+            "enabled": {
+              "type": "boolean"
+            },
+            "base_risk_per_day": {
+              "type": "number",
+              "minimum": 0
+            },
+            "base_spoilage_rate": {
+              "type": "number",
+              "minimum": 0
+            },
+            "opened_multiplier": {
+              "type": "number",
+              "minimum": 0
+            },
             "contamination_tags": {
               "type": "array",
-              "items": { "$ref": "#/$defs/TagId" },
+              "items": {
+                "$ref": "common-schema.json#/$defs/TagId"
+              },
               "uniqueItems": true
             },
-            "spoiled_output_id": { "$ref": "#/$defs/Identifier" }
+            "spoiled_output_id": {
+              "$ref": "common-schema.json#/$defs/Identifier"
+            }
           }
         },
-
         "environment_modifiers": {
           "type": "object",
           "description": "Machine-specific environment logic knobs (temperature/pressure/humidity/heat sources/etc.).",
@@ -327,120 +446,190 @@
             "additionalProperties": true
           }
         },
-
         "energy": {
           "type": "object",
           "description": "Optional unified energy/fuel model (supports fuel, power, or both).",
           "additionalProperties": false,
           "properties": {
-            "requires_fuel": { "type": "boolean" },
-            "fuel_slot_role": { "$ref": "#/$defs/SlotRole" },
-            "fuel_burn_time_ticks": { "type": "integer", "minimum": 0 },
-
-            "requires_power": { "type": "boolean" },
-            "power_unit": { "type": "string" },
-            "power_per_tick": { "type": "number", "minimum": 0 },
-
-            "consumption_per_tick": { "type": "number", "minimum": 0 }
+            "requires_fuel": {
+              "type": "boolean"
+            },
+            "fuel_slot_role": {
+              "$ref": "#/$defs/SlotRole"
+            },
+            "fuel_burn_time_ticks": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "requires_power": {
+              "type": "boolean"
+            },
+            "power_unit": {
+              "type": "string"
+            },
+            "power_per_tick": {
+              "type": "number",
+              "minimum": 0
+            },
+            "consumption_per_tick": {
+              "type": "number",
+              "minimum": 0
+            }
           }
         }
       }
     },
-
     "InteractionAction": {
-      "enum": ["open_ui", "quick_extract", "rotate", "toggle", "none"]
+      "enum": [
+        "open_ui",
+        "quick_extract",
+        "rotate",
+        "toggle",
+        "none"
+      ]
     },
-
     "Interaction": {
       "type": "object",
       "description": "Supports both 'open_gui_on_use' style and (right/shift-right) action style.",
       "additionalProperties": false,
       "properties": {
-        "open_gui_on_use": { "type": "boolean" },
-
-        "right_click_action": { "$ref": "#/$defs/InteractionAction" },
-        "shift_right_click_action": { "$ref": "#/$defs/InteractionAction" },
-
-        "requires_sneak_to_extract": { "type": "boolean" },
-
-        "sound_on_open": { "type": "string" },
-        "sound_on_close": { "type": "string" },
-
-        "allow_automation": { "type": "boolean" },
-        "requires_fuel": { "type": "boolean" },
-
+        "open_gui_on_use": {
+          "type": "boolean"
+        },
+        "right_click_action": {
+          "$ref": "#/$defs/InteractionAction"
+        },
+        "shift_right_click_action": {
+          "$ref": "#/$defs/InteractionAction"
+        },
+        "requires_sneak_to_extract": {
+          "type": "boolean"
+        },
+        "sound_on_open": {
+          "type": "string"
+        },
+        "sound_on_close": {
+          "type": "string"
+        },
+        "allow_automation": {
+          "type": "boolean"
+        },
+        "requires_fuel": {
+          "type": "boolean"
+        },
         "lockable": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "enabled": { "type": "boolean" },
-            "lock_item_tag": { "type": "string" },
-            "owner_only_by_default": { "type": "boolean" }
+            "enabled": {
+              "type": "boolean"
+            },
+            "lock_item_tag": {
+              "type": "string"
+            },
+            "owner_only_by_default": {
+              "type": "boolean"
+            }
           }
         },
-
         "permissions": {
           "type": "object",
           "description": "Optional ownership/trust model for multi-player servers.",
           "additionalProperties": false,
           "properties": {
-            "owner_only": { "type": "boolean" },
-            "trust_list_tag": { "type": "string" }
+            "owner_only": {
+              "type": "boolean"
+            },
+            "trust_list_tag": {
+              "type": "string"
+            }
           }
         }
       }
     },
-
     "SidedRule": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["insert", "extract"],
+      "required": [
+        "insert",
+        "extract"
+      ],
       "properties": {
-        "insert": { "type": "boolean" },
-        "extract": { "type": "boolean" }
+        "insert": {
+          "type": "boolean"
+        },
+        "extract": {
+          "type": "boolean"
+        }
       }
     },
-
     "Automation": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "hopper_insert": { "type": "boolean" },
-        "hopper_extract": { "type": "boolean" },
-
-        "supports_hoppers": { "type": "boolean" },
-        "supports_pipes": { "type": "boolean" },
-
-        "redstone_controllable": { "type": "boolean" },
-        "comparator_output": { "type": "string" },
-
+        "hopper_insert": {
+          "type": "boolean"
+        },
+        "hopper_extract": {
+          "type": "boolean"
+        },
+        "supports_hoppers": {
+          "type": "boolean"
+        },
+        "supports_pipes": {
+          "type": "boolean"
+        },
+        "redstone_controllable": {
+          "type": "boolean"
+        },
+        "comparator_output": {
+          "type": "string"
+        },
         "pipe_sides": {
           "type": "object",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         },
-
         "sided_rules": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "top": { "$ref": "#/$defs/SidedRule" },
-            "sides": { "$ref": "#/$defs/SidedRule" },
-            "bottom": { "$ref": "#/$defs/SidedRule" }
+            "top": {
+              "$ref": "#/$defs/SidedRule"
+            },
+            "sides": {
+              "$ref": "#/$defs/SidedRule"
+            },
+            "bottom": {
+              "$ref": "#/$defs/SidedRule"
+            }
           }
         }
       }
     },
-
     "Upgrades": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["enabled", "slots", "allowed_upgrade_tags", "effects"],
+      "required": [
+        "enabled",
+        "slots",
+        "allowed_upgrade_tags",
+        "effects"
+      ],
       "properties": {
-        "enabled": { "type": "boolean" },
-        "slots": { "type": "integer", "minimum": 0 },
+        "enabled": {
+          "type": "boolean"
+        },
+        "slots": {
+          "type": "integer",
+          "minimum": 0
+        },
         "allowed_upgrade_tags": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         },
         "effects": {
@@ -448,57 +637,78 @@
           "description": "Either numeric knobs or structured effect objects; kept open-ended for iteration.",
           "additionalProperties": {
             "oneOf": [
-              { "type": "number" },
-              { "type": "object", "additionalProperties": true }
+              {
+                "type": "number"
+              },
+              {
+                "type": "object",
+                "additionalProperties": true
+              }
             ]
           }
         }
       }
     },
-
     "WoodVariants": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "enabled": { "type": "boolean" },
-        "supports_variants": { "type": "boolean" },
-
-        "default_wood": { "type": "string" },
+        "enabled": {
+          "type": "boolean"
+        },
+        "supports_variants": {
+          "type": "boolean"
+        },
+        "default_wood": {
+          "type": "string"
+        },
         "allowed_woods": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         },
-
         "allowed_types": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         },
-        "wood_affects_flavor": { "type": "boolean" },
-
+        "wood_affects_flavor": {
+          "type": "boolean"
+        },
         "flavor_bias": {
           "type": "object",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     },
-
     "MetalVariants": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "enabled": { "type": "boolean" },
-        "default_metal": { "type": "string" },
+        "enabled": {
+          "type": "boolean"
+        },
+        "default_metal": {
+          "type": "string"
+        },
         "allowed_metals": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         },
-        "coating": { "type": "string" }
+        "coating": {
+          "type": "string"
+        }
       }
     },
-
     "Client": {
       "type": "object",
       "additionalProperties": false,
@@ -509,109 +719,179 @@
         "show_environment_state"
       ],
       "properties": {
-        "screen_id": { "type": "string" },
-
-        "show_progress": { "type": "boolean" },
-        "show_quality": { "type": "boolean" },
-        "show_environment_state": { "type": "boolean" },
-
-        "block_entity_renderer": { "type": "string" },
-        "animated": { "type": "boolean" },
-        "particles": { "type": "boolean" }
+        "screen_id": {
+          "type": "string"
+        },
+        "show_progress": {
+          "type": "boolean"
+        },
+        "show_quality": {
+          "type": "boolean"
+        },
+        "show_environment_state": {
+          "type": "boolean"
+        },
+        "block_entity_renderer": {
+          "type": "string"
+        },
+        "animated": {
+          "type": "boolean"
+        },
+        "particles": {
+          "type": "boolean"
+        }
       }
     },
-
     "Gates": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["requires_feature_flag", "requires_gamerule_true"],
+      "required": [
+        "requires_feature_flag",
+        "requires_gamerule_true"
+      ],
       "properties": {
-        "requires_feature_flag": { "type": "string" },
-        "requires_gamerule_true": { "type": "string" },
-        "min_player_level": { "type": "integer", "minimum": 0 },
+        "requires_feature_flag": {
+          "type": "string"
+        },
+        "requires_gamerule_true": {
+          "type": "string"
+        },
+        "min_player_level": {
+          "type": "integer",
+          "minimum": 0
+        },
         "requires_mods": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         }
       }
     },
-
     "Text": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name_key", "tooltip_key"],
+      "required": [
+        "name_key",
+        "tooltip_key"
+      ],
       "properties": {
-        "name_key": { "type": "string" },
-        "tooltip_key": { "type": "string" },
-        "lore_key": { "type": "string" }
+        "name_key": {
+          "type": "string"
+        },
+        "tooltip_key": {
+          "type": "string"
+        },
+        "lore_key": {
+          "type": "string"
+        }
       }
     },
-
     "Crafting": {
       "type": "object",
       "description": "Optional recipe hints / definitions.",
       "additionalProperties": true,
       "properties": {
-        "recipe_type": { "type": "string" },
-        "recipe_id": { "$ref": "#/$defs/Identifier" },
+        "recipe_type": {
+          "type": "string"
+        },
+        "recipe_id": {
+          "$ref": "common-schema.json#/$defs/Identifier"
+        },
         "ingredients": {
           "type": "object",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         },
-        "pattern": { "type": "array", "items": { "type": "string" } },
-        "recipe_hint": { "type": "object", "additionalProperties": true }
+        "pattern": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recipe_hint": {
+          "type": "object",
+          "additionalProperties": true
+        }
       }
     },
-
     "Config": {
       "type": "object",
       "description": "Global toggles and multipliers applied at runtime.",
       "additionalProperties": false,
       "properties": {
-        "enabled": { "type": "boolean", "default": true },
-
-        "speed_multiplier": { "type": "number", "minimum": 0, "default": 1.0 },
-        "energy_multiplier": { "type": "number", "minimum": 0, "default": 1.0 },
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "speed_multiplier": {
+          "type": "number",
+          "minimum": 0,
+          "default": 1.0
+        },
+        "energy_multiplier": {
+          "type": "number",
+          "minimum": 0,
+          "default": 1.0
+        },
         "quality_multiplier": {
           "type": "number",
           "minimum": 0,
           "default": 1.0
         },
-
-        "allow_automation": { "type": "boolean", "default": true },
-        "debug_logging": { "type": "boolean", "default": false }
+        "allow_automation": {
+          "type": "boolean",
+          "default": true
+        },
+        "debug_logging": {
+          "type": "boolean",
+          "default": false
+        }
       }
     },
-
     "Events": {
       "type": "object",
       "description": "Optional data-driven hooks for scripting-like behavior.",
       "additionalProperties": false,
       "properties": {
-        "on_tick": { "$ref": "#/$defs/EventList" },
-        "on_start": { "$ref": "#/$defs/EventList" },
-        "on_complete": { "$ref": "#/$defs/EventList" },
-        "on_fail": { "$ref": "#/$defs/EventList" },
-        "on_open": { "$ref": "#/$defs/EventList" },
-        "on_close": { "$ref": "#/$defs/EventList" }
+        "on_tick": {
+          "$ref": "common-schema.json#/$defs/EventList"
+        },
+        "on_start": {
+          "$ref": "common-schema.json#/$defs/EventList"
+        },
+        "on_complete": {
+          "$ref": "common-schema.json#/$defs/EventList"
+        },
+        "on_fail": {
+          "$ref": "common-schema.json#/$defs/EventList"
+        },
+        "on_open": {
+          "$ref": "common-schema.json#/$defs/EventList"
+        },
+        "on_close": {
+          "$ref": "common-schema.json#/$defs/EventList"
+        }
       }
+    }
+  },
+  "patternProperties": {
+    "^x-": {
+      "type": [
+        "object",
+        "array",
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "null"
+      ]
     },
-
-    "EventList": {
-      "type": "array",
-      "items": { "$ref": "#/$defs/EventAction" },
-      "default": []
-    },
-    "EventAction": {
+    "^_debug$": {
       "type": "object",
-      "additionalProperties": true,
-      "required": ["type"],
-      "properties": {
-        "type": { "type": "string", "minLength": 1 },
-        "conditions": { "type": "array", "items": { "type": "object" } },
-        "params": { "type": "object", "additionalProperties": true }
-      }
+      "additionalProperties": true
     }
   }
 }

@@ -1,5 +1,5 @@
 {
   "id": "charcoal",
   "display_name": "Charcoal",
-  "kind": "filter"
+  "kind": "additive"
 }
