@@ -132,10 +132,24 @@ brewing/
  │   ├─ data/brewing/
  │   │   ├─ alcohol_types/ - JSON alcohol type definitions
  │   │   ├─ beverages/ - JSON beverage definitions
+ │   │   │   ├─ absinthe/ - Absinthe beverages
+ │   │   │   ├─ ale/ - Ale beverages
+ │   │   │   ├─ beer/ - Beer beverages
+ │   │   │   ├─ brandy/ - Brandy beverages
+ │   │   │   ├─ cider/ - Cider beverages
+ │   │   │   ├─ gin/ - Gin beverages
+ │   │   │   ├─ lager/ - Lager beverages
+ │   │   │   ├─ mead/ - Mead beverages
+ │   │   │   ├─ rum/ - Rum beverages
+ │   │   │   ├─ stout/ - Stout beverages
+ │   │   │   ├─ vodka/ - Vodka beverages
+ │   │   │   ├─ whiskey/ - Whiskey beverages
+ │   │   │   └─ wine/ - Wine beverages
  │   │   ├─ containers/ - JSON container definitions
  │   │   ├─ equipment/ - JSON equipment definitions
  │   │   ├─ ingredients/ - JSON ingredient definitions
  │   │   ├─ methods/ - JSON method definitions
+ │   │   ├─ schemas/ - JSON schema definitions
  │   │   ├─ effects/ - JSON effect definitions
  │   │   └─ tags/ - Tag definitions
  │   │
