@@ -13,7 +13,7 @@
   },
   "material": {
     "wood": {
-      "wood_type": "oak",
+      "wood_type": "wood",
       "supports_wood_variants": true,
       "allowed_wood_types": [
         "oak",
